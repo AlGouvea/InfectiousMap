@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 
+//Rotas
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/html/index.html");
 });
