@@ -5,38 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <style>
-        body{
-            background-color: rgb(44, 142, 35);
-            color: aliceblue;
-        }
-        html *{
-            font-family: "Product Sans", Bold, sans-seriff;
-        }
-        .button {
-            background-color: #234725;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-    </style>
+            body{
+                background-color: rgb(144,238,144);
+                color: rgb(44, 142, 35);
+            }
+            header{
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+            }
+            html *{
+                font-family: "Product Sans", Bold, sans-seriff;
+                margin: 0.1cm;
+            }
+            div{
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                min-height: 500px;
+                width: 55%;
+                display:flex;
+                flex-direction:row;
+                flex-wrap:wrap;
+                justify-content: center;
+                text-align:center;
+                align-items: center;
+                margin-left:22.5%;
+                margin-top:5%;
+
+            }
+            .button {
+                background-color: #234725;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            </style>
 </head>
-<header><h1><a href="/"><font color=white>InfectiousMap</font></a></h1></header></font>
-    <a href="/sobre"><button class="button">Sobre</button></a>
-    <a href="/loginregister"><button class="button">Login</button></a>
-    <hr>
+<header>
+        <h1><a href="/"><font color=white>InfectiousMap</font></a></h1></font>
+        <a href="/sobre"><button class="button">Sobre</button></a>
+        <a href="/loginregister"><button class="button">Login</button></a>
+        <hr>
+    </header>
 <body>
+    <div>
     <h1>Coloque seus dados para se registrar.</h1>
     
     <form action="/cadastro" method ="POST">
     <h2>User</h2>
     <input type="text" name="Username" size="40" /> 
+    <br>
     <br>
     <h2>Região Administrativa</h2>
     <select name="Região Administrativa">
@@ -75,20 +99,24 @@
         <option value="33">Arniqueira</option>
     </select>
     <br>
+    <br>
     <h2>Tipo</h2>
     <input type="radio" name="tipo" value="1">Comum
     <input type="radio" name="tipo" value="2">Médico
     <br>
+    <br>
     <h2>CRM</h2>
     <input type="text" name="CRM" size="40" /> 
+    <br>
     <br>
     <h2>Senha</h2>
     <input type="password" name="Senha" size="40" />
     <br>
+    <br>
     <button type="submit" class="button">Registrar</button>
     </form>
     <br>
-    <br>
-    <a href="/"><button class="button">Pagina inicial</button></a>
+    
+</div>
 </body>
 </html>
