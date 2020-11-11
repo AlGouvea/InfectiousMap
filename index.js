@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser")
 
 
 //Body Parser
-
+    app.use(bodyParser.urlencoded({extended: false}))
+    app.use(bodyParser.json())
 //Rotas
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/html/index.html");
@@ -17,8 +19,8 @@ app.get("/loginregister", function(req, res){
 app.get("/register", function(req, res){
     res.sendFile(__dirname + "/html/register.html");
 });
-app.post("/add", function(req, res){
-    res.sendFile(__dirname + "/html/add.html");
+app.post("/cadastro", function(req, res){
+    res.send(+req.body.Login)
 });
 
 
