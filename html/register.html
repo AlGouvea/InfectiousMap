@@ -33,14 +33,57 @@
     <hr>
 <body>
     <h1>Coloque seus dados para se registrar.</h1>
-    <br>
+    
     <form action="/cadastro" method ="POST">
     <h2>User</h2>
     <input type="text" name="Username" size="40" /> 
     <br>
+    <h2>Região Administrativa</h2>
+    <select name="Região Administrativa">
+        <option value="1">Plano Piloto</option>
+        <option value="2">Gama</option>
+        <option value="3">Taguatinga</option>
+        <option value="4">Brazlândia</option>
+        <option value="5">Sobradinho</option>
+        <option value="6">Planaltina</option>
+        <option value="7">Paranoá</option>
+        <option value="8">Núcle Bandeirante</option>
+        <option value="9">Ceilândia</option>
+        <option value="10">Guará</option>
+        <option value="11">Cruzeiro</option>
+        <option value="12">Samambaia</option>
+        <option value="13">Santa Maria</option>
+        <option value="14">São Sebastião</option>
+        <option value="15">Recanto das Emas</option>
+        <option value="16">Lago Sul</option>
+        <option value="17">Riacho Fundo</option>
+        <option value="18">Lago Norte</option>
+        <option value="19">Candangolândia</option>
+        <option value="20">Águas Claras</option>
+        <option value="21">Riacho Fundo 2</option>
+        <option value="22">Sudoeste/Octogonal</option>
+        <option value="23">Varjão</option>
+        <option value="24">Park Way</option>
+        <option value="25">Estrutural/Scia</option>
+        <option value="26">Sobradinho 2</option>
+        <option value="27">Jardim Botânico</option>
+        <option value="28">Itapoã</option>
+        <option value="29">SIA</option>
+        <option value="30">Vicente Pires</option>
+        <option value="31">Fercal</option>
+        <option value="32">Sol Nascente/Pôr do Sol</option>
+        <option value="33">Arniqueira</option>
+    </select>
+    <br>
+    <h2>Tipo</h2>
+    <input type="radio" name="tipo" value="1">Comum
+    <input type="radio" name="tipo" value="2">Médico
+    <br>
+    <h2>CRM</h2>
+    <input type="text" name="CRM" size="40" /> 
+    <br>
     <h2>Senha</h2>
     <input type="password" name="Senha" size="40" />
-    <br>
     <br>
     <button type="submit" class="button">Registrar</button>
     </form>
