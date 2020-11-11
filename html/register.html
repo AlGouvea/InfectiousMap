@@ -27,16 +27,23 @@
         }
     </style>
 </head>
+<header><h1><a href="/"><font color=white>InfectiousMap</font></a></h1></header></font>
+    <a href="/sobre"><button class="button">Sobre</button></a>
+    <a href="/loginregister"><button class="button">Login</button></a>
+    <hr>
 <body>
     <h1>Coloque seus dados para se registrar.</h1>
     <br>
-    <h2>Login</h2>
-    <input type="text" name="Login" size="40" /> 
+    <form action="/cadastro" method ="POST">
+    <h2>User</h2>
+    <input type="text" name="Username" size="40" /> 
+    <br>
     <h2>Senha</h2>
-    <input type="text" name="Senha" size="40" />
+    <input type="password" name="Senha" size="40" />
     <br>
     <br>
-    <button class="button">Registrar</button>
+    <button type="submit" class="button">Registrar</button>
+    </form>
     <br>
     <br>
     <a href="/"><button class="button">Pagina inicial</button></a>
