@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Doenca</title>
+    <style>
+        body{
+            background-color: rgb(44, 142, 35);
+            color: aliceblue;
+        }
+        html *{
+            font-family: "Product Sans", Bold, sans-seriff;
+        }
+        .button {
+            background-color: #234725;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<script>
+    
+function capture () {
+   var name = document.getElementById('name').value;
+   var cid = document.getElementById('cid').value;
+   var symptom = document.getElementById('symptom').value;
+   var transmission = document.getElementById('transmission').value;
+   var prevention = document.getElementById('prevention').value;
+   var warning = document.getElementById('warning').value;
+   
+   document.getElementById('a').innerText = name;
+   document.getElementById('b').innerText = cid;
+   document.getElementById('c').innerText = symptom;
+   document.getElementById('d').innerText = transmission;
+   document.getElementById('e').innerText = prevention;
+   document.getElementById('f').innerText = warning;
+
+}
+
+</script>
+<header><h1><a href="/"><font color=white>InfectiousMap</font></a></h1></header></font>
+<hr>
+<body>
+    <h1>Cadastro de Doenças</h1>
+    <br>
+    <h3> Nome <input type="text" id="name" size="40" /> <h3>
+    <h3> CID <input type="text" id="cid" size="40" /> <h3>
+    <h3> Sintomas <input type="text" id="symptom" size="40" /> <h3>
+    <h3> Formas de transmissão <input type="text" id="transmission" size="40" /> <h3>
+    <h3> Formas de Prevenção <input type="text" id="prevention" size="40" /> <h3>
+    <h3> Nível de Periculosidade <input type="text" id="warning" size="40" /> <h3>
+    <button type="submit" class="button" onClick = "capture()" >Cadastrar</button>
+
+    <br>
+    </form>
+    <br>
+    <br>
+</body>
+</html>
