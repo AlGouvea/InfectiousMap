@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const cadastro = require('./js/cadastro');
 
 
 console.log("TESTE");
@@ -26,7 +27,7 @@ app.post("/entrar", function(req, res){
     res.send(req.body.Login)
 });
 app.post("/cadastro", function(req, res){
-    res.send(req.body.Username)
+
 });
 
 
