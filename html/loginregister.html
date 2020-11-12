@@ -5,47 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-        body{
-            background-color: rgb(44, 142, 35);
-            color: aliceblue;
-        }
-        html *{
-            font-family: "Product Sans", Bold, sans-seriff;
-        }
-        .button {
-            background-color: #234725;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-    </style>
+            body{
+                background-color: rgb(144,238,144);
+                color: rgb(44, 142, 35);
+            }
+            header{
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                height: 70px;
+                padding: 10px 0 0 10px; 
+            }
+            footer{
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                padding: 10px 0 0 10px;
+                text-align: center; 
+            }
+            html *{
+                font-family: "Product Sans", Bold, sans-seriff;
+                margin: 0;
+            }
+            #login{
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                min-height: 500px;
+                width: 55%;
+                display:flex;
+                flex-direction:row;
+                flex-wrap:wrap;
+                justify-content: center;
+                text-align:center;
+                align-items: center;
+                margin:auto;
+                margin-top: 50px;
+                margin-block-end: 50px;
+
+            }
+            #logo{
+                float: left;
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+            }
+            #menu{
+                float: right;
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                padding: 0 10px 0 0;
+            }
+            .button {
+                background-color: #234725;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            </style>
 </head>
-<header><h1><a href="/"><font color=white>InfectiousMap</font></a></h1></header></font>
-<hr>
+
 <body>
+    <header>
+        <div id=logo>
+            <h1><a href="/"><font color=white>InfectiousMap</font></a></h1></font>
+        </div>
+        <div id=menu>
+            <a href="/sobre"><button class="button">Sobre</button></a>
+        </div>        </header>
+
+    <div id=login>
+    <br>
     <h1>Faça aqui seu Login</h1>
     <br>
+
     <form action="/entrar" method="POST">
-    <h2>Login</h2>
-    <input type="text" name="Login" size="40" /> 
-    <h2>Senha</h2>
-    <input type="password" name="Senha" size="40" /> 
-    <br>
-    <br>
-    <button type="submit" class="button">Entrar</button>
-    <br>
+        <h2>Login</h2>
+        <input type="text" name="Login" size="40" /> 
+    
+        <h2>Senha</h2>
+        <input type="password" name="Senha" size="40" /> 
+        <br>
+        <br>
+        <button type="submit" class="button">Entrar</button>
+        <br>
     </form>
-    <h3>Ainda não é cadastrado? Clique no botão abaixo e registre-se</h3>
-    <a href="/register"><button class="button">Registrar</button></a>
-    <br>
-    <br>
-    <a href="/"><button class="button">Pagina inicial</button></a>
+
+        <h3>Ainda não é cadastrado? Clique no botão abaixo e registre-se</h3>
+        <a href="/register"><button class="button">Registrar</button></a>
+        <br>
+        <br>
+        <a href="/"><button class="button">Pagina inicial</button></a>
+        <br>
+    </div>
+    <footer>
+        <p>
+            Produzido pela Equipe ESCA.
+        </p>
+    </footer>
 </body>
 </html>
