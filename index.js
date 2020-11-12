@@ -27,7 +27,17 @@ app.post("/entrar", function(req, res){
     res.send(req.body.Login)
 });
 app.post("/cadastro", function(req, res){
-
+    cadastro.create({
+        User: req.body.Username,
+        RA: req.body.RA,
+        Tipo: req.body.tipo,
+        CRM: req.body.CRM,
+        Senha: req.body.Senha,
+    }).then(function(){
+        res.send("Registro Concluido!")
+    }).catch(function(erro){
+        res.send("Ops! Algo deu errado!\n Codigo de erro: "+erro)
+    })
 });
 
 
