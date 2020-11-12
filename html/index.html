@@ -9,16 +9,42 @@
                 background-color: rgb(144,238,144);
                 color: rgb(44, 142, 35);
             }
+            #principal{
+                clear: both;
+                color: black;
+                text-align: center;
+                padding: 100px 0 0 0;
+                font-size: 60px;
+            }
             header{
                 background-color: rgb(44, 142, 35);
                 color: aliceblue;
+                height: 70px;      
+                padding: 10px 0 0 10px;          
+            }
+            footer{
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                padding: 10px 0 0 10px;
+                text-align: center; 
             }
             html *{
                 font-family: "Product Sans", Bold, sans-seriff;
-                margin: 0.1cm;
+                margin: 0cm;
+            }
+            #logo{
+                float: left;
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+            }
+            #menu{
+                float: right;
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                padding: 0 10px 0 0;
             }
             
-            .button {
+            button {
                 background-color: #234725;
                 border: none;
                 color: white;
@@ -31,15 +57,26 @@
                 border-radius: 10px;
                 cursor: pointer;
             }
-            </style>
+        </style>
 </head>
 <body>
     <header>
-        <h1><a href="/"><font color=white>InfectiousMap</font></a></h1></font>
-        <a href="/sobre"><button class="button">Sobre</button></a>
-        <a href="/loginregister"><button class="button">Login</button></a>
-        <a href="/register"><button class="button">Register</button></a>
-        <hr>
+        <div id=logo>
+            <h1><a href="/"><font color=white>InfectiousMap</font></a></h1></font>
+        </div>
+        <div id=menu>
+            <a href="/sobre"><button class="button">Sobre</button></a>
+            <a href="/loginregister"><button class="button">Login</button></a>
+            <a href="/register"><button class="button">Register</button></a>
+        </div>
     </header>
+    <div id="principal">
+        Seja Bem Vindo ao InfectiousMap!
+    </div>
+    <footer>
+        <p>
+            Produzido pela Equipe ESCA.
+        </p>
+    </footer>
 </body>
 </html>

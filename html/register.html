@@ -12,12 +12,20 @@
             header{
                 background-color: rgb(44, 142, 35);
                 color: aliceblue;
+                height: 70px;
+                padding: 10px 0 0 10px; 
+            }
+            footer{
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                padding: 10px 0 0 10px;
+                text-align: center; 
             }
             html *{
                 font-family: "Product Sans", Bold, sans-seriff;
-                margin: 0.1cm;
+                margin: 0;
             }
-            div{
+            #login{
                 background-color: rgb(44, 142, 35);
                 color: aliceblue;
                 min-height: 500px;
@@ -28,9 +36,21 @@
                 justify-content: center;
                 text-align:center;
                 align-items: center;
-                margin-left:22.5%;
-                margin-top:5%;
+                margin:auto;
+                margin-top:50px;
+                margin-block-end: 50px;
 
+            }
+            #logo{
+                float: left;
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+            }
+            #menu{
+                float: right;
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                padding: 0 10px 0 0;
             }
             .button {
                 background-color: #234725;
@@ -47,14 +67,18 @@
             }
             </style>
 </head>
-<header>
-        <h1><a href="/"><font color=white>InfectiousMap</font></a></h1></font>
-        <a href="/sobre"><button class="button">Sobre</button></a>
-        <a href="/loginregister"><button class="button">Login</button></a>
-        <hr>
-    </header>
+
 <body>
-    <div>
+        <header>
+                <div id=logo>
+                    <h1><a href="/"><font color=white>InfectiousMap</font></a></h1></font>
+                </div>
+                <div id=menu>    
+                    <a href="/sobre"><button class="button">Sobre</button></a>
+                    <a href="/loginregister"><button class="button">Login</button></a>
+                </div>
+            </header>
+    <div id=login>
     <h1>Coloque seus dados para se registrar.</h1>
     
     <form action="/cadastro" method ="POST">
@@ -118,5 +142,10 @@
     <br>
     
 </div>
+<footer>
+    <p>
+        Produzido pela Equipe ESCA.
+    </p>
+</footer>
 </body>
 </html>
