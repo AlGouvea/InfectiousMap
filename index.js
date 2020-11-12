@@ -34,5 +34,5 @@ app.post("/cadastro", function(req, res){
 
 app.listen(8081, function(req, res){
     console.log("Servidor Rodando na url http://localhost:8081");
-    const db = require("./js/db");
+    //const db = require("./js/db"); SOMENTE DESMARCAR APÓS TERMOS O SERVIDOR RODANDO, POIS GERA ERROS QUANDO NÃO CONECTA!
 });
