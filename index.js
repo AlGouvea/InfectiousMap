@@ -7,6 +7,7 @@ console.log("TESTE");
 //Body Parser
     app.use(bodyParser.urlencoded({extended: false}))
     app.use(bodyParser.json())
+    app.use(express.static('./app/public'));
 
 //Rotas
 app.get("/", function(req, res){
