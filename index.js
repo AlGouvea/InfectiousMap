@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
 
 
+console.log("TESTE");
 //Body Parser
     app.use(bodyParser.urlencoded({extended: false}))
     app.use(bodyParser.json())
+
 //Rotas
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/html/index.html");
@@ -31,5 +33,6 @@ app.post("/cadastro", function(req, res){
 
 
 app.listen(8081, function(req, res){
-    console.log("Servidor Rodando na url http://localhost:8081")
+    console.log("Servidor Rodando na url http://localhost:8081");
+    const db = require("./js/db");
 });
