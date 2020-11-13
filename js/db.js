@@ -11,3 +11,19 @@ async function connect(){
 }
 connect();
 module.exports = {}
+
+async function selectCustomers(){
+    const conn = await connect();
+    const [rows] = await conn.query('SELECT * FROM clientes;');
+    return rows;
+}
+ 
+module.exports = {selectCustomers}
+
+async function insertCustomer(customer){
+    const conn = await connect();
+    const sql = 'INSERT INTO users(user,password,ra,crm) VALUES (?,?,?,?);';
+    const values = [customer.user,customer.password,customer.ra,customer.crm];
+    return await conn.query(sql, values);
+}
+module.exports = {insertCustomer}
