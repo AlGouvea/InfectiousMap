@@ -25,43 +25,51 @@
             border-radius: 10px;
             cursor: pointer;
         }
+        fieldset{
+            border: 2px white solid;
+            border-radius: 10px;
+            width: 30%;
+        }
+
+
     </style>
 
 </head>
-<script>
-    
-function capture () {
-   var name = document.getElementById('name').value;
-   var cid = document.getElementById('cid').value;
-   var symptom = document.getElementById('symptom').value;
-   var transmission = document.getElementById('transmission').value;
-   var prevention = document.getElementById('prevention').value;
-   var warning = document.getElementById('warning').value;
-   
-   document.getElementById('a').innerText = name;
-   document.getElementById('b').innerText = cid;
-   document.getElementById('c').innerText = symptom;
-   document.getElementById('d').innerText = transmission;
-   document.getElementById('e').innerText = prevention;
-   document.getElementById('f').innerText = warning;
 
-}
-
-</script>
 <header><h1><a href="/"><font color=white>InfectiousMap</font></a></h1></header></font>
 <hr>
 <body>
     <h1>Cadastro de Doenças</h1>
     <br>
-    <h3> Nome <input type="text" id="name" size="40" /> <h3>
-    <h3> CID <input type="text" id="cid" size="40" /> <h3>
-    <h3> Sintomas <input type="text" id="symptom" size="40" /> <h3>
-    <h3> Formas de transmissão <input type="text" id="transmission" size="40" /> <h3>
-    <h3> Formas de Prevenção <input type="text" id="prevention" size="40" /> <h3>
-    <h3> Nível de Periculosidade <input type="text" id="warning" size="40" /> <h3>
-    <button type="submit" class="button" onClick = "capture()" >Cadastrar</button>
-
+    <form>
+    <h2> Nome <input type="text"  name ="name" size="40" /> <h2>
+    <h2> CID <input type="text" name="cid" size="40" /> <h2>
+    <h2> Formas de transmissão <input type="text" name="transmission" size="40" /> <h2>
+    <h2> Formas de Prevenção <input type="text" name="prevention" size="40" /> <h2>
+    <fieldset>
+        <legend> Nível de Risco</legend>
+        <input type="radio" name="warning" id="warning1" value="high">
+        <label for="warning1">Alto</label><br>
+        <input type="radio" name="warning" id="warning2" value="medium">
+        <label for="warning2">Moderado</label><br>
+        <input type="radio" name="warning" id="warning3" value="low">
+        <label for="warning3">Baixo</label><br>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Sintomas</legend> 
+    <input type="checkbox" name="sintomas" id="sint1" value="febre">
+     <label for="sint1">Febre</label><br>
+    <input type="checkbox" name="sintomas" id="sint2" value="tosse">
+     <label for="sint2">Tosse</label><br>
+    <input type="checkbox" name="sintomas" id="sint3" value="fadiga">
+     <label for="sint3">Fadiga</label><br>
+    <input type="checkbox" name="sintomas" id="sint4" value="dor_de_cabeca">
+     <label for="sint4">Dor de Cabeça</label><br>
+    </fieldset>
     <br>
+    <button type="submit" class="button" value="Enviar">Cadastrar</button>
+
     </form>
     <br>
     <br>
