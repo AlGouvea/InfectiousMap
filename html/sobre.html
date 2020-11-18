@@ -128,7 +128,7 @@ right: 30px;
              
              <div class="dropMenu">
                   <div class="dropdown-menu" id="dropMenu">
-                  <form class="px-4 py-3" action="/loginregister">
+                  <form class="px-4 py-3" method="POST" action="/loginregister">
                     <div class="form-group">
                       <label for="exampleDropdownFormEmail1">Usuário</label>
                       <input type="email" class="form-control" id="exampleDropdownFormEmail1" >
@@ -140,7 +140,7 @@ right: 30px;
                     <div class="form-group">
                       
                     </div>
-                    <button type="submit" class="btn btn-primary">Logar</button>
+                    <input type="submit" class="btn btn-primary" value="Logar"></input>
                   </form>
                   <div class="dropdown-divider"></div>
                   <a style="cursor:pointer;" class="dropdown-item" data-toggle="modal" data-target="#staticBackdrop">Novo aqui? Cadastre-se</a>
