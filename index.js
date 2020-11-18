@@ -25,12 +25,12 @@ app.post("/cadastrar",urlencodedParser, function(req, res){
         
         console.log('INSERT INTO users');
         const result = await db.insertCustomer({user: req.body.inputUser,password:req.body.inputPassword,ra:req.body.inputRa,crm:req.body.inputCrm});
-        console.log(result);
+        if(result)res.redirect("/?return=successCadUser"); else res.redirect("/?return=errorCadUser");
     })();
+    
 
 
-
-    res.sendFile(__dirname + "/html/index.html");
+   
 });
 app.get("/sobre", function(req, res){
     res.sendFile(__dirname + "/html/sobre.html");

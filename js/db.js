@@ -24,6 +24,6 @@ async function insertCustomer(customer){
     const conn = await connect();
     const sql = 'INSERT INTO users(user,password,ra,crm) VALUES (?,?,?,?);';
     const values = [customer.user,customer.password,customer.ra,customer.crm];
-    return await conn.query(sql, values);
+    if(conn.query(sql, values)){return await 1;}else{return await 0;}
 }
 module.exports = {insertCustomer}

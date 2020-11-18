@@ -85,9 +85,40 @@ $(function () {
             }
         });
     });
+
+
+function verifSucess(){
+  var url_string = window.location.href;
+var url = new URL(url_string);
+var c = url.searchParams.get("return");
+console.log(c);
+if(c == "successCadUser"){
+  $("#msgTitle").html("Registrar-se");
+  document.getElementById("imgStatus").src = "images/check.png";
+  $("#msgStatus").html("Usuario cadastrado com sucesso!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/'");
+  $("#buttonAviso").html("Meu Menu");
+
+  $('#aviso').modal('show');
+  
+}else if(c == "errorCadUser"){
+  $("#msgTitle").html("Registrar-se");
+  document.getElementById("imgStatus").src = "images/error.png";
+  $("#msgStatus").html("OPS! Erro ao cadastrar usuário!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/'");
+  $("#buttonAviso").html("Página Inicial");
+  $('#aviso').modal('show');
+}
+
+}
+
+
+
+
+
         </script>
 </head>
-<body onload="$('#toast').toast('show');$('#crm').hide();">
+<body onload="$('#toast').toast('show');$('#crm').hide();verifSucess()">
     <header>
 
 
@@ -142,7 +173,7 @@ $(function () {
                       <button type="submit" class="btn btn-primary">Logar</button>
                     </form>
                     <div class="dropdown-divider"></div>
-                    <a style="cursor:pointer;" class="dropdown-item" data-toggle="modal" data-target="#staticBackdrop">Novo aqui? Cadastre-se</a>
+                    <a style="cursor:pointer;" class="dropdown-item" data-toggle="modal" data-target="#registro">Novo aqui? Cadastre-se</a>
                 
                   </div>
                 
@@ -202,7 +233,7 @@ $(function () {
 
 
 <!-- Modal REGISTRO -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="registro" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -285,6 +316,36 @@ $(function () {
     </div>
   </div>
 </div>
+
+
+<!-- Modal Aviso -->
+<div class="modal fade" id="aviso" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="msgTitle"></h5>
+        <button type="button" class="close" onclick="window.location.href='/'" >
+
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <center><img id="imgStatus" src="/images/check.png" style="width: 100px;height: 100px;"/>
+        <h1 id="msgStatus" style="font-size: 20pt;"></h1>
+        </center>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="buttonAviso"  class="btn btn-primary"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
     <footer>
         <p>
             Produzido pela Equipe ESCA.
