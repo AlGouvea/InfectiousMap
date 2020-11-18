@@ -35,17 +35,14 @@ app.post("/cadastrar",urlencodedParser, function(req, res){
 app.get("/sobre", function(req, res){
     res.sendFile(__dirname + "/html/sobre.html");
 });
-app.get("/loginregister", function(req, res){
-    res.sendFile(__dirname + "/html/loginregister.html");
+app.post("/loginregister", function(req, res){
+    console.log(req.body.exampleDropdownFormEmail1)
 });
 app.get("/register", function(req, res){
     res.sendFile(__dirname + "/html/register.html");
 });
-app.post("/entrar", function(req, res){
-    res.send(req.body.Login)
-});
 app.post("/cadastro", function(req, res){
-    res.send(req.body.Username)
+    console.log(req.body.Username)
 });
 app.get("/cadastrodecasos", function(req, res){
     res.sendFile(__dirname + "/html/cadastrodecasos.html");
