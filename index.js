@@ -47,6 +47,9 @@ app.post("/entrar", function(req, res){
 app.post("/cadastro", function(req, res){
     res.send(req.body.Username)
 });
+app.get("/cadastrodecasos", function(req, res){
+    res.sendFile(__dirname + "/html/cadastrodecasos.html");
+});
 
 
 
