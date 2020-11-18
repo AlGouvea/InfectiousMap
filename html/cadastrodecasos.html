@@ -167,99 +167,99 @@ right: 30px;
       </div>
      
       
+      
   </header>
-
 
 <!-- Modal REGISTRO -->
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="staticBackdropLabel">Registrar-se</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form name="registro" method="GET" action="#" id="registroForm">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Usuário</label>
-            <input type="user" class="form-control" id="inputUser" name="inputUser">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Registrar-se</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form name="registro" method="GET" action="/cadastrar" id="registroForm">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Usuário</label>
+              <input type="user" class="form-control" id="inputUser" name="inputUser">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4" >Senha</label>
+              <input type="password" class="form-control" id="inputPassword"name="inputPassword">
+            </div>
+          
+          
+            <label for="inputRa">Região Administrativa</label>
+            <select id="inputRa" name="inputRa" class="form-control">
+              <option value="1">Plano Piloto</option>
+        <option value="2">Gama</option>
+        <option value="3">Taguatinga</option>
+        <option value="4">Brazlândia</option>
+        <option value="5">Sobradinho</option>
+        <option value="6">Planaltina</option>
+        <option value="7">Paranoá</option>
+        <option value="8">Núcle Bandeirante</option>
+        <option value="9">Ceilândia</option>
+        <option value="10">Guará</option>
+        <option value="11">Cruzeiro</option>
+        <option value="12">Samambaia</option>
+        <option value="13">Santa Maria</option>
+        <option value="14">São Sebastião</option>
+        <option value="15">Recanto das Emas</option>
+        <option value="16">Lago Sul</option>
+        <option value="17">Riacho Fundo</option>
+        <option value="18">Lago Norte</option>
+        <option value="19">Candangolândia</option>
+        <option value="20">Águas Claras</option>
+        <option value="21">Riacho Fundo 2</option>
+        <option value="22">Sudoeste/Octogonal</option>
+        <option value="23">Varjão</option>
+        <option value="24">Park Way</option>
+        <option value="25">Estrutural/Scia</option>
+        <option value="26">Sobradinho 2</option>
+        <option value="27">Jardim Botânico</option>
+        <option value="28">Itapoã</option>
+        <option value="29">SIA</option>
+        <option value="30">Vicente Pires</option>
+        <option value="31">Fercal</option>
+        <option value="32">Sol Nascente/Pôr do Sol</option>
+        <option value="33">Arniqueira</option>
+            </select>
           </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4" >Senha</label>
-            <input type="password" class="form-control" id="inputPassword"name="inputPassword">
+         
+          <div class="form-group">
+            <label for="inputMedicoChk">É Médico?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="crmChk" name="crmChk">
+              <label class="form-check-label" for="gridCheck">
+                SIM
+              </label>
+            </div>
+            <div class="form-group col-md-5" id="crm" >
+              <label for="inputCity">CRM</label>
+              <input type="text" class="form-control" id="inputCrm" name="inputCrm">
+            </div>
           </div>
-        
-        
-          <label for="inputRa">Região Administrativa</label>
-          <select id="inputRa" name="inputRa" class="form-control">
-            <option value="1">Plano Piloto</option>
-      <option value="2">Gama</option>
-      <option value="3">Taguatinga</option>
-      <option value="4">Brazlândia</option>
-      <option value="5">Sobradinho</option>
-      <option value="6">Planaltina</option>
-      <option value="7">Paranoá</option>
-      <option value="8">Núcle Bandeirante</option>
-      <option value="9">Ceilândia</option>
-      <option value="10">Guará</option>
-      <option value="11">Cruzeiro</option>
-      <option value="12">Samambaia</option>
-      <option value="13">Santa Maria</option>
-      <option value="14">São Sebastião</option>
-      <option value="15">Recanto das Emas</option>
-      <option value="16">Lago Sul</option>
-      <option value="17">Riacho Fundo</option>
-      <option value="18">Lago Norte</option>
-      <option value="19">Candangolândia</option>
-      <option value="20">Águas Claras</option>
-      <option value="21">Riacho Fundo 2</option>
-      <option value="22">Sudoeste/Octogonal</option>
-      <option value="23">Varjão</option>
-      <option value="24">Park Way</option>
-      <option value="25">Estrutural/Scia</option>
-      <option value="26">Sobradinho 2</option>
-      <option value="27">Jardim Botânico</option>
-      <option value="28">Itapoã</option>
-      <option value="29">SIA</option>
-      <option value="30">Vicente Pires</option>
-      <option value="31">Fercal</option>
-      <option value="32">Sol Nascente/Pôr do Sol</option>
-      <option value="33">Arniqueira</option>
-          </select>
-        </div>
-       
-        <div class="form-group">
-          <label for="inputMedicoChk">É Médico?</label>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="crmChk" name="crmChk">
-            <label class="form-check-label" for="gridCheck">
-              SIM
-            </label>
-          </div>
-          <div class="form-group col-md-5" id="crm" >
-            <label for="inputCity">CRM</label>
-            <input type="text" class="form-control" id="inputCrm" name="inputCrm">
-          </div>
-        </div>
-       
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      <button type="button" onclick="document.getElementById('registroForm').submit();" class="btn btn-primary">Cadastrar-se</button>
+         
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" onclick="document.getElementById('registroForm').submit();" class="btn btn-primary">Cadastrar-se</button>
+      </div>
     </div>
   </div>
-</div>
-</div>
+  </div>
 
 
 <div id="principal">
     <h1>Cadastro de Casos</h1>
     <br>
-</div>
+
 <form>
 <div>
     <h3>Nome da Doença: <input id="text"></h3>
@@ -306,7 +306,7 @@ right: 30px;
       <button type="submit" class="button" value="Enviar">Cadastrar Caso</button>
 </div>
 </form>
-
+</div>
     <footer>
             <p>
                 Produzido pela Equipe ESCA.
