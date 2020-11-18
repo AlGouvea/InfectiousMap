@@ -41,12 +41,6 @@ app.get("/loginregister", function(req, res){
 app.get("/register", function(req, res){
     res.sendFile(__dirname + "/html/register.html");
 });
-app.post("/entrar", function(req, res){
-    res.send(req.body.Login)
-});
-app.post("/cadastro", function(req, res){
-    res.send(req.body.Username)
-});
 app.get("/cadastrodecasos", function(req, res){
     res.sendFile(__dirname + "/html/cadastrodecasos.html");
 });
