@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+            body{
+                background-color: rgb(144,238,144);
+                color: rgb(44, 142, 35);
+            }
+            header{
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                height: 70px;
+                padding: 10px 0 0 10px; 
+            }
+            footer{
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                padding: 10px 0 0 10px;
+                text-align: center; 
+            }
+            html *{
+                font-family: "Product Sans", Bold, sans-seriff;
+                margin: 0;
+            }
+            #login{
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                min-height: 500px;
+                width: 55%;
+                display:flex;
+                flex-direction:row;
+                flex-wrap:wrap;
+                justify-content: center;
+                text-align:center;
+                align-items: center;
+                margin:auto;
+                margin-top:50px;
+                margin-block-end: 50px;
+
+            }
+            #logo{
+                float: left;
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+            }
+            #menu{
+                float: right;
+                background-color: rgb(44, 142, 35);
+                color: aliceblue;
+                padding: 0 10px 0 0;
+            }
+            .button {
+                background-color: #234725;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            </style>
+</head>
+
+<body>
+        <header>
+                <div id=logo>
+                    <h1><a href="/"><font color=white>InfectiousMap</font></a></h1></font>
+                </div>
+                <div id=menu>    
+                    <a href="/sobre"><button class="button">Sobre</button></a>
+                    <a href="/loginregister"><button class="button">Login</button></a>
+                </div>
+            </header>
+    <div id=login>
+    <h1>Coloque seus dados para se registrar.</h1>
+    
+    <form action="/cadastro" method ="POST">
+    <h2>User</h2>
+    <input type="text" name="Username" size="40" /> 
+    <br>
+    <br>
+    <h2>Região Administrativa</h2>
+    <select name="Região Administrativa">
+        <option value="1">Plano Piloto</option>
+        <option value="2">Gama</option>
+        <option value="3">Taguatinga</option>
+        <option value="4">Brazlândia</option>
+        <option value="5">Sobradinho</option>
+        <option value="6">Planaltina</option>
+        <option value="7">Paranoá</option>
+        <option value="8">Núcle Bandeirante</option>
+        <option value="9">Ceilândia</option>
+        <option value="10">Guará</option>
+        <option value="11">Cruzeiro</option>
+        <option value="12">Samambaia</option>
+        <option value="13">Santa Maria</option>
+        <option value="14">São Sebastião</option>
+        <option value="15">Recanto das Emas</option>
+        <option value="16">Lago Sul</option>
+        <option value="17">Riacho Fundo</option>
+        <option value="18">Lago Norte</option>
+        <option value="19">Candangolândia</option>
+        <option value="20">Águas Claras</option>
+        <option value="21">Riacho Fundo 2</option>
+        <option value="22">Sudoeste/Octogonal</option>
+        <option value="23">Varjão</option>
+        <option value="24">Park Way</option>
+        <option value="25">Estrutural/Scia</option>
+        <option value="26">Sobradinho 2</option>
+        <option value="27">Jardim Botânico</option>
+        <option value="28">Itapoã</option>
+        <option value="29">SIA</option>
+        <option value="30">Vicente Pires</option>
+        <option value="31">Fercal</option>
+        <option value="32">Sol Nascente/Pôr do Sol</option>
+        <option value="33">Arniqueira</option>
+    </select>
+    <br>
+    <br>
+    <h2>Tipo</h2>
+    <input type="radio" name="tipo" value="1">Comum
+    <input type="radio" name="tipo" value="2">Médico
+    <br>
+    <br>
+    <h2>CRM</h2>
+    <input type="text" name="CRM" size="40" /> 
+    <br>
+    <br>
+    <h2>Senha</h2>
+    <input type="password" name="Senha" size="40" />
+    <br>
+    <br>
+    <button type="submit" class="button">Registrar</button>
+    </form>
+    <br>
+    
+</div>
+<footer>
+    <p>
+        Produzido pela Equipe ESCA.
+    </p>
+</footer>
+</body>
+</html>
