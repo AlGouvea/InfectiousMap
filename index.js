@@ -36,7 +36,7 @@ app.get("/sobre", function(req, res){
     res.sendFile(__dirname + "/html/sobre.html");
 });
 app.post("/loginregister", function(req, res){
-    console.log(req.body.exampleDropdownFormEmail1)
+   //Codigo de autenticacao de usuario
 });
 app.get("/register", function(req, res){
     res.sendFile(__dirname + "/html/register.html");
