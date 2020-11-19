@@ -15,9 +15,14 @@ module.exports = {}
 
 async function insertUser(user){
     const conn = await connect();
+    const sql = 'SELECT COUNT(*) AS countUsers FROM users WHERE user = "'+user.user+'"';
+    const [rows] = await conn.query(sql);
+    if(rows[0].countUsers<=0){
     const sql = 'INSERT INTO users(user,password,ra,crm) VALUES (?,?,?,?);';
     const values = [user.user,user.password,user.ra,user.crm];
     if(conn.query(sql, values)){return await 1;}else{return await 0;}
+}
+else{return await 3;}
 }
 
 async function selectUser(user){
