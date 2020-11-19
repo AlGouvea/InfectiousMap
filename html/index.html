@@ -109,6 +109,23 @@ if(c == "successCadUser"){
   $("#buttonAviso").html("Página Inicial");
   $('#aviso').modal('show');
 }
+else if(c == "successLogin"){
+  $("#msgTitle").html("Login");
+  document.getElementById("imgStatus").src = "images/check.png";
+  $("#msgStatus").html("Usuario logado com sucesso!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/'");
+  $("#buttonAviso").html("Meu Menu");
+
+  $('#aviso').modal('show');
+  
+}else if(c == "errorLogin"){
+  $("#msgTitle").html("Login");
+  document.getElementById("imgStatus").src = "images/error.png";
+  $("#msgStatus").html("OPS! Erro ao logar!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/'");
+  $("#buttonAviso").html("Página Inicial");
+  $('#aviso').modal('show');
+}
 
 }
 
@@ -158,14 +175,14 @@ if(c == "successCadUser"){
                
                <div class="dropMenu">
                     <div class="dropdown-menu" id="dropMenu">
-                      <form class="px-4 py-3" method="POST" action="/loginregister">
+                      <form class="px-4 py-3" method="POST" action="/login">
                       <div class="form-group">
                         <label for="exampleDropdownFormEmail1">Usuário</label>
-                        <input type="email" class="form-control" name="exampleDropdownFormEmail1" >
+                        <input type="text" class="form-control" name="inputUser" >
                       </div>
                       <div class="form-group">
                         <label for="exampleDropdownFormPassword1">Senha</label>
-                        <input type="password" class="form-control" id="exampleDropdownFormPassword1" >
+                        <input type="password" class="form-control" name="inputPassword" >
                       </div>
                       <div class="form-group">
                         
