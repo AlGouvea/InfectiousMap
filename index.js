@@ -30,7 +30,9 @@ app.post("/cadastrar",urlencodedParser, function(req, res){
 
     (async () => {
         const db =  require("./js/db"); 
-        const result = await db.insertUser({user: req.body.inputUser,password:req.body.inputPassword,ra:req.body.inputRa,crm:req.body.inputCrm});
+        var crm;
+        if(req.body.inputCrm){crm =req.body.inputCrm ;}else{crm = 0;}
+        const result = await db.insertUser({user: req.body.inputUser,password:req.body.inputPassword,ra:req.body.inputRa,crm:crm});
         if(result)res.redirect("/?return=successCadUser"); else res.redirect("/?return=errorCadUser");
     })();  
 });
