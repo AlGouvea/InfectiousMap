@@ -125,6 +125,13 @@ else if(c == "successLogin"){
   $("#buttonAviso").attr('onclick', "window.location.href='/'");
   $("#buttonAviso").html("Página Inicial");
   $('#aviso').modal('show');
+}else if(c == "errorUserExist"){
+  $("#msgTitle").html("Login");
+  document.getElementById("imgStatus").src = "images/error.png";
+  $("#msgStatus").html("OPS! Usuário Já Cadastrado!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/'");
+  $("#buttonAviso").html("Página Inicial");
+  $('#aviso').modal('show');
 }
 
 }
