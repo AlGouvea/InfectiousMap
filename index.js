@@ -71,6 +71,9 @@ app.post("/login",urlencodedParser, function(req, res){
 app.get("/sobre", function(req, res){
     res.sendFile(__dirname + "/html/sobre.html");
 });
+app.get("/cadastrodedoenca", function(req, res){
+    res.sendFile(__dirname + "/html/cadastrodedoenca.html");
+});
 app.post("/loginregister", function(req, res){
     console.log(req.body.exampleDropdownFormEmail1)
     //Codigo de autenticacao de usuario para login

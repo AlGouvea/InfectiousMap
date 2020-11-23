@@ -2,17 +2,64 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Doenca</title>
+    <title>Cadastro de Casos</title>
     <style>
         body{
-            background-color: rgb(44, 142, 35);
-            color: aliceblue;
+            background-color: rgb(144,238,144);
+            color: rgb(44, 142, 35);
         }
-        html *{
+        .nav-link{
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                text-rendering: optimizeLegibility;
+        }
+        h1{
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
             font-family: "Product Sans", Bold, sans-seriff;
         }
-        .button {
+        h2{
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-family: "Product Sans", Bold, sans-seriff;
+        }
+        h3{
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-family: "Product Sans", Bold, sans-seriff;
+        }
+        #principal{
+            clear: both;
+            color: black;
+            text-align: center;
+            padding: 100px 0 0 0;
+            font-size: 60px;
+        }
+        
+        footer{
+            background-color: rgb(44, 142, 35);
+            color: aliceblue;
+            padding: 10px 0 0 10px;
+            text-align: center; 
+        }
+       
+       
+        #menu{
+            float: right;
+            background-color: rgb(44, 142, 35);
+            color: aliceblue;
+            padding: 0 10px 0 0;
+        }
+        
+        button {
             background-color: #234725;
             border: none;
             color: white;
@@ -25,53 +72,257 @@
             border-radius: 10px;
             cursor: pointer;
         }
-        fieldset{
-            border: 2px white solid;
-            border-radius: 10px;
-            width: 30%;
+
+
+        navbar-brand{
+            font-weight: bold;
+            font-size: 15pt;
+
         }
 
+        .dropMenu{
+
+position: relative;
+top: 50px;
+right: 240px;
+
+
+}
+
+#btnLogin{
+position: relative;
+
+right: 30px;
+}
 
     </style>
 
+<script>
+          
+  $(function () {
+          $("#crmChk").click(function () {
+              if ($(this).is(":checked")) {
+                  $("#crm").show();
+  
+              } else {
+                  $("#crm").hide();
+              }
+          });
+      });
+          </script>
 </head>
+<body onload="$('#toast').toast('show');$('#crm').hide();">
+  <header>
 
-<header><h1><a href="/"><font color=white>InfectiousMap</font></a></h1></header></font>
-<hr>
-<body>
-    <h1>Cadastro de Doenças</h1>
+
+      <nav  class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+          <a class="navbar-brand" href="#">
+              <img src="/images/logo.png" width="70" height="70" alt="" loading="lazy">
+              InfectiousMap
+            </a>
+
+
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Início </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/sobre">Sobre</a>
+              </li>
+              <li class="nav-item"> 
+                <a class="nav-link" href="/cadastrodecasos">Cadastro de casos</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="/cadastrodedoenca"> Cadastro de Doença<span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+            
+             <img style="width:80px;height:80px;cursor:pointer;" src="/images/avatar.png" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="rounded-circle" id="btnLogin"/>
+              
+             
+             <div class="dropMenu">
+                  <div class="dropdown-menu" id="dropMenu">
+                    <form class="px-4 py-3" method="POST" action="/loginregister">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Usuário</label>
+                      <input type="email" class="form-control" id="exampleDropdownFormEmail1" >
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleDropdownFormPassword1">Senha</label>
+                      <input type="password" class="form-control" id="exampleDropdownFormPassword1" >
+                    </div>
+                    <div class="form-group">
+                      
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Logar"></input>
+                  </form>
+                  <div class="dropdown-divider"></div>
+                  <a style="cursor:pointer;" class="dropdown-item" data-toggle="modal" data-target="#staticBackdrop">Novo aqui? Cadastre-se</a>
+              
+                </div>
+              
+              
+              </div>
+
+          </div>
+        </nav>
+
+        <div id="principal">
+          <div aria-live="polite" aria-atomic="true" style="position:relative; min-height:200px;">
+              <div class="toast" style="position: absolute; top: -70px; right: 10px;" id="toast" data-delay="10000">
+                <div class="toast-header">
+                  <strong class="mr-auto">Nova mensagem do Lucas:</strong>
+                  <small>Agora</small>
+                  <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="toast-body">
+                  Oi, seja Bem Vindo(a)!
+                </br>
+                  Faca seu login ou cadastre-se!
+                </div>
+              </div>
+            </div>
+      </div>
+     
+      
+      
+  </header>
+
+<!-- Modal REGISTRO -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Registrar-se</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form name="registro" method="GET" action="/cadastrar" id="registroForm">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Usuário</label>
+              <input type="user" class="form-control" id="inputUser" name="inputUser">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4" >Senha</label>
+              <input type="password" class="form-control" id="inputPassword"name="inputPassword">
+            </div>
+          
+          
+            <label for="inputRa">Região Administrativa</label>
+            <select id="inputRa" name="inputRa" class="form-control">
+              <option value="1">Plano Piloto</option>
+        <option value="2">Gama</option>
+        <option value="3">Taguatinga</option>
+        <option value="4">Brazlândia</option>
+        <option value="5">Sobradinho</option>
+        <option value="6">Planaltina</option>
+        <option value="7">Paranoá</option>
+        <option value="8">Núcle Bandeirante</option>
+        <option value="9">Ceilândia</option>
+        <option value="10">Guará</option>
+        <option value="11">Cruzeiro</option>
+        <option value="12">Samambaia</option>
+        <option value="13">Santa Maria</option>
+        <option value="14">São Sebastião</option>
+        <option value="15">Recanto das Emas</option>
+        <option value="16">Lago Sul</option>
+        <option value="17">Riacho Fundo</option>
+        <option value="18">Lago Norte</option>
+        <option value="19">Candangolândia</option>
+        <option value="20">Águas Claras</option>
+        <option value="21">Riacho Fundo 2</option>
+        <option value="22">Sudoeste/Octogonal</option>
+        <option value="23">Varjão</option>
+        <option value="24">Park Way</option>
+        <option value="25">Estrutural/Scia</option>
+        <option value="26">Sobradinho 2</option>
+        <option value="27">Jardim Botânico</option>
+        <option value="28">Itapoã</option>
+        <option value="29">SIA</option>
+        <option value="30">Vicente Pires</option>
+        <option value="31">Fercal</option>
+        <option value="32">Sol Nascente/Pôr do Sol</option>
+        <option value="33">Arniqueira</option>
+            </select>
+          </div>
+         
+          <div class="form-group">
+            <label for="inputMedicoChk">É Médico?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="crmChk" name="crmChk">
+              <label class="form-check-label" for="gridCheck">
+                SIM
+              </label>
+            </div>
+            <div class="form-group col-md-5" id="crm" >
+              <label for="inputCity">CRM</label>
+              <input type="text" class="form-control" id="inputCrm" name="inputCrm">
+            </div>
+          </div>
+         
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" onclick="document.getElementById('registroForm').submit();" class="btn btn-primary">Cadastrar-se</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+<div id="principal">
+    <h1>Cadastro de Doença</h1>
     <br>
-    <form>
-    <h2> Nome <input type="text"  name ="name" size="40" /> <h2>
-    <h2> CID <input type="text" name="cid" size="40" /> <h2>
-    <h2> Formas de transmissão <input type="text" name="transmission" size="40" /> <h2>
-    <h2> Formas de Prevenção <input type="text" name="prevention" size="40" /> <h2>
-    <fieldset>
-        <legend> Nível de Risco</legend>
-        <input type="radio" name="warning" id="warning1" value="high">
-        <label for="warning1">Alto</label><br>
-        <input type="radio" name="warning" id="warning2" value="medium">
-        <label for="warning2">Moderado</label><br>
-        <input type="radio" name="warning" id="warning3" value="low">
-        <label for="warning3">Baixo</label><br>
-    </fieldset>
+
+<form>
+<div>
+    <h3>Nome da Doença: <input id="text"></h3>
+    <h3>CID:<input id="CID" type="text" size="20"></h3>
+    <br>
+    <h3>Formas de Transmissao</h3>
+    <input type="checkbox" id="Tosse" />
+    <label for="Tosse"><img src="/images/Contagio/Tosse.png" style="width:4vw; height:4vw;"/></label>
+    <input type="checkbox" id="Mosquito" />
+    <label for="Tosse"><img src="/images/Contagio/Mosquito.png" style="width:4vw; height:4vw;"/></label>
+    <input type="checkbox" id="Fluidos" />
+    <label for="Tosse"><img src="/images/Contagio/Fluidos.png" style="width:4vw; height:4vw;"/></label>
+    <br>
+    <h3>Formas de Prevencao</h3>
+    <input type="checkbox" id="Vacina" />
+    <label for="Tosse"><img src="/images/Prevencao/Vacina.png" style="width:4vw; height:4vw;"/></label>
+    <input type="checkbox" id="Mascara" />
+    <label for="Tosse"><img src="/images/Prevencao/Mascara.png" style="width:4vw; height:4vw;"/></label>
+    <br>
+    <h3>Nivel de Risco</h3>
+    <input type="radio" name="Risco" value="Baixo"> Baixo
+    <input type="radio" name="Risco" value="Medio"> Medio
+    <input type="radio" name="Risco" value="Alto"> Alto
+    <br>
+    <h3>Sintomas</h3>
     
-    <fieldset>
-        <legend>Sintomas</legend> 
-    <input type="checkbox" name="sintomas" id="sint1" value="febre">
-     <label for="sint1">Febre</label><br>
-    <input type="checkbox" name="sintomas" id="sint2" value="tosse">
-     <label for="sint2">Tosse</label><br>
-    <input type="checkbox" name="sintomas" id="sint3" value="fadiga">
-     <label for="sint3">Fadiga</label><br>
-    <input type="checkbox" name="sintomas" id="sint4" value="dor_de_cabeca">
-     <label for="sint4">Dor de Cabeça</label><br>
-    </fieldset>
-    <br>
     <button type="submit" class="button" value="Enviar">Cadastrar</button>
-
-    </form>
-    <br>
-    <br>
+</div>
+</form>
+</div>
+    <footer>
+            <p>
+                Produzido pela Equipe ESCA.
+            </p>
+        </footer>
 </body>
 </html>
