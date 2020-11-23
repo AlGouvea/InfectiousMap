@@ -18,6 +18,24 @@
                 -moz-osx-font-smoothing: grayscale;
                 text-rendering: optimizeLegibility;
         }
+        h1{
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-family: "Product Sans", Bold, sans-seriff;
+        }
+        h2{
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-family: "Product Sans", Bold, sans-seriff;
+        }
+        h3{
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-family: "Product Sans", Bold, sans-seriff;
+        }
         #principal{
             clear: both;
             color: black;
@@ -119,11 +137,11 @@ right: 30px;
               <li class="nav-item">
                 <a class="nav-link" href="/sobre">Sobre</a>
               </li>
-              <li class="nav-item active"> 
-                <a class="nav-link" href="/cadastrodecasos">Cadastro de casos <span class="sr-only">(current)</span></a>
+              <li class="nav-item"> 
+                <a class="nav-link" href="/cadastrodecasos">Cadastro de casos</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/cadastrodedoenca"> Cadastro de Doenças </a>
+              <li class="nav-item active">
+                  <a class="nav-link" href="/cadastrodedoenca"> Cadastro de Doença<span class="sr-only">(current)</span></a>
                 </li>
 
             </ul>
@@ -274,7 +292,7 @@ right: 30px;
 <form>
 <div>
     <h3>Nome da Doença: <input id="text"></h3>
-    <h3>CID: <input id="CID" type="text" size="20"></h3>
+    <h3>CID:<input id="CID" type="text" size="20"></h3>
     <br>
     <h3>Formas de Transmissao</h3>
     <input type="checkbox" id="Tosse" />
@@ -295,6 +313,8 @@ right: 30px;
     <input type="radio" name="Risco" value="Medio"> Medio
     <input type="radio" name="Risco" value="Alto"> Alto
     <br>
+    <h3>Sintomas</h3>
+    
     <button type="submit" class="button" value="Enviar">Cadastrar</button>
 </div>
 </form>
