@@ -11,12 +11,7 @@
     <style>
         body{
             background-color: rgb(144,238,144);
-            color: rgb(44, 142, 35);
-        }
-        .nav-link{
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                text-rendering: optimizeLegibility;
+            color: black;
         }
         #principal{
             clear: both;
@@ -24,6 +19,10 @@
             text-align: center;
             padding: 100px 0 0 0;
             font-size: 60px;
+        }
+        #sobre{
+          margin: auto;
+          padding: 45px;
         }
         
         footer{
@@ -54,11 +53,20 @@
             border-radius: 10px;
             cursor: pointer;
         }
+        figure{
+          text-align: center;
+          color:black;
+          display: inline-block;
+        }
 
         navbar-brand{
             font-weight: bold;
             font-size: 15pt;
 
+        }
+        img {
+        border-radius: 100%;
+        padding: 10px;
         }
 
         .dropMenu{
@@ -118,7 +126,9 @@ right: 30px;
               <li class="nav-item active">
                 <a class="nav-link" href="/sobre">Sobre <span class="sr-only">(current)</span></a>
               </li>
-              
+              <li>
+                <a class="nav-link" href="/cadastrodecasos"> Cadastro de casos </a>
+              </li>
                 
 
             </ul>
@@ -291,7 +301,41 @@ right: 30px;
 </div>
 
 
-PAGINA SOBRE
+
+<div id="sobre">
+    <h2>O Projeto</h2>
+    <p>
+        O InfectiousMap é uma plataforma online na qual o usuário passa a ter acesso a informações sobre casos registrados de doenças contagiosas. Para facilitar ao usuário que ele tome as medidas preventivas adequadas, os casos são registrados e informados de acordo com a localidade do ocorrido, de forma que se possa ter acesso à essas informações sobre as áreas que o usuário frequenta.
+    </p>
+    <p>
+      O projeto foi desenvolvido na Disciplina de Métodos de desenvolvimento de Software(MDS) ministrada em 2020 por George Marsicano, do curso de Engenharia de Software da Universidade de Brasília(UnB) 
+    </p>
+  <h2>Equipe ESCA:</h2>
+  <figure>
+    <img src="/images/Ailton.jpg" width="231" height="231" alt="" loading="lazy">
+    <figcaption>Ailton Aires<br> PO(Project Owner) + Back-end</figcaption>
+  </figure>
+  <figure>
+    <img src="/images/alvaro.jpg" width="231" height="231" alt="" loading="lazy">
+    <figcaption>Álvaro Gouvea<br> Back-end</figcaption>
+  </figure>
+  <figure>
+    <img src="/images/carla.jpeg" width="231" height="231" alt="" loading="lazy">
+    <figcaption>Carla Cangussú<br> Documentação + Front-end</figcaption>
+  </figure>
+  <figure>
+    <img src="/images/felipe.png" width="231" height="231" alt="" loading="lazy">
+    <figcaption>Felipe Correia<br> Scrum Master + Back-end</figcaption>
+  </figure>
+  <figure>
+    <img src="/images/hugo.jpg" width="231" height="231" alt="" loading="lazy">
+    <figcaption>Hugo Rocha<br> Front-end + Back-end</figcaption>
+  </figure>
+  <br>
+  <br>
+ 
+
+</div>
     <footer>
             <p>
                 Produzido pela Equipe ESCA.
