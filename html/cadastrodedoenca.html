@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Doenca</title>
+    <style>
+        body{
+            background-color: rgb(44, 142, 35);
+            color: aliceblue;
+        }
+        html *{
+            font-family: "Product Sans", Bold, sans-seriff;
+        }
+        .button {
+            background-color: #234725;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        fieldset{
+            border: 2px white solid;
+            border-radius: 10px;
+            width: 30%;
+        }
+
+
+    </style>
+
+</head>
+
+<header><h1><a href="/"><font color=white>InfectiousMap</font></a></h1></header></font>
+<hr>
+<body>
+    <h1>Cadastro de Doenças</h1>
+    <br>
+    <form>
+    <h2> Nome <input type="text"  name ="name" size="40" /> <h2>
+    <h2> CID <input type="text" name="cid" size="40" /> <h2>
+    <h2> Formas de transmissão <input type="text" name="transmission" size="40" /> <h2>
+    <h2> Formas de Prevenção <input type="text" name="prevention" size="40" /> <h2>
+    <fieldset>
+        <legend> Nível de Risco</legend>
+        <input type="radio" name="warning" id="warning1" value="high">
+        <label for="warning1">Alto</label><br>
+        <input type="radio" name="warning" id="warning2" value="medium">
+        <label for="warning2">Moderado</label><br>
+        <input type="radio" name="warning" id="warning3" value="low">
+        <label for="warning3">Baixo</label><br>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Sintomas</legend> 
+    <input type="checkbox" name="sintomas" id="sint1" value="febre">
+     <label for="sint1">Febre</label><br>
+    <input type="checkbox" name="sintomas" id="sint2" value="tosse">
+     <label for="sint2">Tosse</label><br>
+    <input type="checkbox" name="sintomas" id="sint3" value="fadiga">
+     <label for="sint3">Fadiga</label><br>
+    <input type="checkbox" name="sintomas" id="sint4" value="dor_de_cabeca">
+     <label for="sint4">Dor de Cabeça</label><br>
+    </fieldset>
+    <br>
+    <button type="submit" class="button" value="Enviar">Cadastrar</button>
+
+    </form>
+    <br>
+    <br>
+</body>
+</html>
