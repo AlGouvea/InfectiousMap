@@ -85,11 +85,17 @@ app.get("/cadastrodecasos", function(req, res){
     res.sendFile(__dirname + "/html/cadastrodecasos.html");
 });
 
+app.get('/session', (req, res) => {
+    sess = req.session;
+    res.send(sess);
+});
+
 app.get('/menu',(req,res) => {
     sess = req.session;
     if(sess.user) {
-        res.write(`<h1>Hello ${sess.user} </h1><br>`);
-        res.end('<a href='+'/logout'+'>Logout</a>');
+       // res.write(`<h1>Hello ${sess.user} </h1><br>`);
+       // res.end('<a href='+'/logout'+'>Logout</a>');
+       res.sendFile(__dirname + "/html/menu.html");
     }
     else {
         res.write('<h1>Please login first.</h1>');
