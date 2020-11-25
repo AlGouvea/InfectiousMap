@@ -130,6 +130,14 @@ $(function () {
         });
     });
 
+function handleInput(e) {
+   var ss = e.target.selectionStart;
+   var se = e.target.selectionEnd;
+   e.target.value = e.target.value.toUpperCase();
+   e.target.selectionStart = ss;
+   e.target.selectionEnd = se;
+}
+
 
 function verifSucess(){
   var url_string = window.location.href;
@@ -497,32 +505,43 @@ $(document).ready(function() {
 
     <form>
         <div>
-            <h3>Nome da Doença: <input id="text"></h3>
-            <h3>CID:<input id="CID" type="text" size="20"></h3>
+             <h3>Nome: <input type="text" id="name" oninput="handleInput(event)"></h3>
+
+            <h3>CID:<input id="CID" type="num" size="20"></h3>
             <br>
             <h3>Formas de Transmissao</h3>
-            <input type="checkbox" id="Tosse" />
-            <label for="Tosse"><img src="/images/Contagio/Tosse.png" style="width:4vw; height:4vw;"/></label>
+            <input type="checkbox" id="Ar" />
+            <label for="Ar"><img src="/images/Contagio/ar.png" style="width:5vw; height:5vw;"/></label>
             <input type="checkbox" id="Mosquito" />
-            <label for="Mosquito"><img src="/images/Contagio/Mosquito.png" style="width:4vw; height:4vw;"/></label>
+            <label for="Mosquito"><img src="/images/Contagio/Mosquito.png" style="width:5vw; height:5vw;"/></label>
             <input type="checkbox" id="Fluidos" />
-            <label for="Fluidos"><img src="/images/Contagio/Fluidos.png" style="width:4vw; height:4vw;"/></label>
+            <label for="Fluidos"><img src="/images/Contagio/Fluidos.png" style="width:5vw; height:5vw;"/></label>
             <br>
             <h3>Formas de Prevencao</h3>
             <input type="checkbox" id="Vacina" />
-            <label for="Vacina"><img src="/images/Prevencao/Vacina.png" style="width:4vw; height:4vw;"/></label>
+            <label for="Vacina"><img src="/images/Prevencao/Vacina.png" style="width:5vw; height:5vw;"/></label>
             <input type="checkbox" id="Mascara" />
-            <label for="Mascara"><img src="/images/Prevencao/Mascara.png" style="width:4vw; height:4vw;"/></label>
+            <label for="Mascara"><img src="/images/Prevencao/Mascara.png" style="width:5vw; height:5vw;"/></label>
             <br>
-            <h3>Nivel de Risco</h3>
+            <h3>Nivel de Risco</h3> <br>
             <input type="radio" name="Risco"  id="1" value="Baixo"> 
-            <label for="1">Baixo</label>
+            <label for="1"> <h5>Baixo</h5> </label>
             <input type="radio" name="Risco" id="2" value="Medio">
-             <label for="2">Médio</label>
+             <label for="2"><h5>Médio</h5></label>
             <input type="radio" name="Risco" id="3" value="Alto">
-             <label for="3">Alto</label> 
+             <label for="3"><h5>Alto</h5></label> 
             <br>
             <h3>Sintomas</h3>
+            <input type="checkbox" id="Tosse" />
+            <label for="Tosse"><img src="/images/Sintomas/tosse.png" style="width:5vw; height:5vw;"/></label>
+            <input type="checkbox" id="Febre" />
+            <label for="Febre"><img src="/images/Sintomas/febre.png" style="width:5vw; height:5vw;"/></label>
+            <input type="checkbox" id="Corisa" />
+            <label for="Corisa"><img src="/images/Sintomas/corisa.png" style="width:5vw; height:5vw;"/></label>
+            <input type="checkbox" id="Dor_de_cabeca" />
+            <label for="Dor_de_cabeca"><img src="/images/Sintomas/dor-de-cabeca.png" style="width:5vw; height:5vw;"/></label>
+            <input type="checkbox" id="Diarreia" />
+            <label for="Diarreia"><img src="/images/Sintomas/diarreia.png" style="width:5vw; height:5vw;"/></label>
             
         </div>
         </form>
