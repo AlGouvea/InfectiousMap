@@ -36,6 +36,65 @@ app.post("/cadastrar",urlencodedParser, function(req, res){
         if(result == 1)res.redirect("/?return=successCadUser"); else if(result == 3) res.redirect("/?return=errorUserExist"); else res.redirect("/?return=errorCadUser");
     })();  
 });
+
+
+app.post("/cadastrarDoenca",urlencodedParser, function(req, res){
+    //console.log(req.body.inputUser);
+    sess = req.session;
+
+    if(sess.crm >0){
+
+    (async () => {
+        const db =  require("./js/db"); 
+
+
+        var ar,mosquito,fluidos = 0;
+        if(req.body.transmAr){ar=1;}
+        if(req.body.transmMosquito){mosquito=1;}
+        if(req.body.transmFluidos){fluidos=1;}
+        var transmO = {ar: +ar, mosquito:+mosquito, fluidos: +fluidos};
+        var transm = JSON.stringify(transmO);
+
+        var vacina,mascara =0;
+        if(req.body.prevVacina){vacina = 1;}
+        if(req.body.prevMascara){mascara = 1;}
+        var prevencaoO = {vacina: +vacina, mascara:+mascara};
+        var prevencao = JSON.stringify(prevencaoO);
+
+
+        var tosse,febre,coriza,dorDeCabeca,diarreia =0;
+        if(req.body.sintTosse){tosse =1;}
+        if(req.body.sintFebre){febre =1;}
+        if(req.body.sintCoriza){coriza=1;}
+        if(req.body.sintDorDeCabeca){dorDeCabeca=1;}
+        if(req.body.sintDiarreia){diarreia=1;}
+        var sintomasO = {tosse:+tosse,febre:+febre,coriza:+coriza,dorDeCabeca:+dorDeCabeca,diarreia:+diarreia};
+        var sintomas = JSON.stringify(sintomasO);
+
+
+
+
+
+
+
+
+
+
+        const result = await db.insertDoenca({nome:req.body.inputnameCadDoenca,cid:req.body.inputcidCadDoenca,transmissao:transm,prevencao:prevencao,sintomas:sintomas,risco:req.body.Risco,crmCadastrante:sess.crm});
+        if(result == 1)res.redirect("/menu?return=successCadDoenca"); else if(result == 3) res.redirect("/menu?return=errorCadDoencaExist"); else res.redirect("/menu?return=errorCadDoenca");
+    })();  
+
+
+}else{
+    res.redirect("/menu?return=errorCadDoencaNotPermitted");
+}
+
+});
+
+
+
+
+
 app.post("/login",urlencodedParser, function(req, res){
 
     (async () => {

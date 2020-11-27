@@ -25,6 +25,26 @@ async function insertUser(user){
 else{return await 3;}
 }
 
+
+
+
+
+
+async function insertDoenca(doenca){
+    const conn = await connect();
+    const sql = 'SELECT COUNT(*) AS countDoencas FROM doencas WHERE cid = "'+doenca.cid+'"';
+    const [rows] = await conn.query(sql);
+    if(rows[0].countDoencas<=0){
+        var data = new Date();
+        var dataA = data.getFullYear()+"-"+data.getMonth()+"-"+data.getDate()
+    const sql = 'INSERT INTO doencas(nome,cid,transmissao,prev,risco,sintomas,dataCadastro,crmCadastrante) VALUES (?,?,?,?,?,?,?,?);';
+    const values = [doenca.nome,doenca.cid,doenca.transmissao,doenca.prevencao,doenca.risco,doenca.sintomas,dataA,doenca.crmCadastrante];
+    if(conn.query(sql, values)){return await 1;}else{return await 0;}
+}
+else{return await 3;}
+}
+
+
 async function selectUser(user){
     const conn = await connect();
     
@@ -38,4 +58,4 @@ async function selectUser(user){
     return 0;}
 }
  
-module.exports = {selectUser,insertUser}
+module.exports = {selectUser,insertUser,insertDoenca}

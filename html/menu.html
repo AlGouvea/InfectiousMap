@@ -115,6 +115,13 @@
             img{
               padding: 15px;
             }
+            #inputnameCadDoenca{
+              border-radius: 10px;
+            }
+            #inputcidCadDoenca{
+              border-radius: 10px;
+            }
+            
         </style>
 
         <script>
@@ -185,7 +192,38 @@ else if(c == "successLogin"){
   $("#buttonAviso").html("Página Inicial");
   $('#aviso').modal('show');
 }
-
+else if(c == "successCadDoenca"){
+  $("#msgTitle").html("Cadastro de Doença");
+  document.getElementById("imgStatus").src = "images/check.png";
+  $("#msgStatus").html("Doença Cadastrada com Sucesso!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/menu'");
+  $("#buttonAviso").html("Menu");
+  $('#aviso').modal('show');
+}
+else if(c == "errorCadDoenca"){
+  $("#msgTitle").html("Cadastro de Doença");
+  document.getElementById("imgStatus").src = "images/error.png";
+  $("#msgStatus").html("Erro ao cadastrar doença!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/menu'");
+  $("#buttonAviso").html("Menu");
+  $('#aviso').modal('show');
+}
+else if(c == "errorCadDoencaExist"){
+  $("#msgTitle").html("Cadastro de Doença");
+  document.getElementById("imgStatus").src = "images/error.png";
+  $("#msgStatus").html("Erro ao cadastrar doença! Esse  CID já existe!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/menu'");
+  $("#buttonAviso").html("Menu");
+  $('#aviso').modal('show');
+}
+else if(c == "errorCadDoencaNotPermmited"){
+  $("#msgTitle").html("Cadastro de Doença");
+  document.getElementById("imgStatus").src = "images/error.png";
+  $("#msgStatus").html("Erro ao cadastrar doença! É necessário ser MÉDICO para tal.");
+  $("#buttonAviso").attr('onclick', "window.location.href='/menu'");
+  $("#buttonAviso").html("Menu");
+  $('#aviso').modal('show');
+}
 }
 
 $(document).ready(function() {
@@ -201,7 +239,7 @@ $(document).ready(function() {
 
         </script>
 </head>
-<body onload="$('#toast').toast('show');$('#crm').hide();verifSucess()">
+<body onload="$('#toast').toast('show');$('#crm').hide();verifSucess();">
     <header>
 
 
@@ -503,27 +541,29 @@ $(document).ready(function() {
         <div class="modal-body">
     <br>
 
-    <form>
+    <form id="registrarDoenca" action="/cadastrarDoenca" method="POST"> 
         <div>
-             <h3>Nome: <input type="text" id="name" oninput="handleInput(event)"></h3>
-
-            <h3>CID:<input id="CID" type="num" size="20"></h3>
+          <div style="align-items:center;">
+             <h3>Nome: <input type="text" id="inputnameCadDoenca"  name="inputnameCadDoenca" oninput="handleInput(event)"></h3>
+            
+            <h3>CID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="inputcidCadDoenca" type="number" name="inputcidCadDoenca" size="20"></h3>
+          </div>
             <br>
-            <h3>Formas de Transmissao</h3>
-            <input type="checkbox" id="Ar" />
+            <h3>Formas de Transmissão:</h3>
+            <input type="checkbox" id="Ar" name="transmAr"/>
             <label for="Ar"><img src="/images/Contagio/ar.png" style="width:5vw; height:5vw;"/></label>
-            <input type="checkbox" id="Mosquito" />
+            <input type="checkbox" id="Mosquito" name="transmMosquito"/>
             <label for="Mosquito"><img src="/images/Contagio/Mosquito.png" style="width:5vw; height:5vw;"/></label>
-            <input type="checkbox" id="Fluidos" />
+            <input type="checkbox" id="Fluidos" name="transmFluidos" />
             <label for="Fluidos"><img src="/images/Contagio/Fluidos.png" style="width:5vw; height:5vw;"/></label>
             <br>
-            <h3>Formas de Prevencao</h3>
-            <input type="checkbox" id="Vacina" />
+            <h3>Formas de Prevenção:</h3>
+            <input type="checkbox" id="Vacina" name="prevVacina"/>
             <label for="Vacina"><img src="/images/Prevencao/Vacina.png" style="width:5vw; height:5vw;"/></label>
-            <input type="checkbox" id="Mascara" />
+            <input type="checkbox" id="Mascara" name="prevMascara" />
             <label for="Mascara"><img src="/images/Prevencao/Mascara.png" style="width:5vw; height:5vw;"/></label>
             <br>
-            <h3>Nivel de Risco</h3> <br>
+            <h3>Nível de Risco:</h3> <br>
             <input type="radio" name="Risco"  id="1" value="Baixo"> 
             <label for="1"> <h5>Baixo</h5> </label>
             <input type="radio" name="Risco" id="2" value="Medio">
@@ -531,16 +571,16 @@ $(document).ready(function() {
             <input type="radio" name="Risco" id="3" value="Alto">
              <label for="3"><h5>Alto</h5></label> 
             <br>
-            <h3>Sintomas</h3>
-            <input type="checkbox" id="Tosse" />
+            <h3>Sintomas:</h3>
+            <input type="checkbox" id="Tosse" name="sintTosse"/>
             <label for="Tosse"><img src="/images/Sintomas/tosse.png" style="width:5vw; height:5vw;"/></label>
-            <input type="checkbox" id="Febre" />
+            <input type="checkbox" id="Febre" name="sintTosse" />
             <label for="Febre"><img src="/images/Sintomas/febre.png" style="width:5vw; height:5vw;"/></label>
-            <input type="checkbox" id="Corisa" />
+            <input type="checkbox" id="Corisa" name="sintCoriza" />
             <label for="Corisa"><img src="/images/Sintomas/corisa.png" style="width:5vw; height:5vw;"/></label>
-            <input type="checkbox" id="Dor_de_cabeca" />
+            <input type="checkbox" id="Dor_de_cabeca" name="sintDorDeCabeca"/>
             <label for="Dor_de_cabeca"><img src="/images/Sintomas/dor-de-cabeca.png" style="width:5vw; height:5vw;"/></label>
-            <input type="checkbox" id="Diarreia" />
+            <input type="checkbox" id="Diarreia" name="sintDiarreia"/>
             <label for="Diarreia"><img src="/images/Sintomas/diarreia.png" style="width:5vw; height:5vw;"/></label>
             
         </div>
@@ -549,7 +589,7 @@ $(document).ready(function() {
     
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" onclick="document.getElementById('registroFor4m').submit();" class="btn btn-primary">Cadastrar Doença</button>
+          <button type="button" onclick="document.getElementById('registrarDoenca').submit();" class="btn btn-primary">Cadastrar Doença</button>
         </div>
       </div>
     </div>
