@@ -24,6 +24,36 @@ sess = req.session;
 
     res.sendFile(__dirname + "/html/index.html");
 });
+
+
+
+app.get('/search',function(req,res){
+
+    (async () => {
+        console.log("chamado");
+        const db =  require("./js/db"); 
+    
+        const result = await db.buscaDoenca({nome:req.query.key});
+
+        var data=[];
+
+data.push(result);
+
+res.end(JSON.stringify(data));
+
+    })();  
+
+
+
+});
+
+
+
+
+
+
+
+
 app.post("/cadastrar",urlencodedParser, function(req, res){
     //console.log(req.body.inputUser);
 
@@ -91,7 +121,24 @@ app.post("/cadastrarDoenca",urlencodedParser, function(req, res){
 
 });
 
+app.post("/cadastrarCaso",urlencodedParser, function(req, res){
+    //console.log(req.body.inputUser);
+    sess = req.session;
 
+    if(sess.user){
+
+    (async () => {
+        const db =  require("./js/db"); 
+        const result = await db.insertCaso({cid:req.body.cidCadCasos,usuario:sess.user,ra:req.body.raCadCasos,dataOcorrencia:req.body.dataOcorrencia});
+        if(result == 1)res.redirect("/menu?return=successCadCasos"); else if(result == 3) res.redirect("/menu?return=errorCadCasoExist"); else res.redirect("/menu?return=errorCadCaso");
+    })();  
+
+
+}else{
+    res.redirect("/menu?return=errorCadCasoNotPermitted");
+}
+
+});
 
 
 

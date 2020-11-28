@@ -10,7 +10,7 @@ async function connect(){
     return connection;
 }
 connect();
-module.exports = {}
+module.exports = {connect}
 
 
 async function insertUser(user){
@@ -25,7 +25,13 @@ async function insertUser(user){
 else{return await 3;}
 }
 
+async function buscaDoenca(doenca){
+    const conn = await connect();
+    const sql = 'SELECT *  FROM doencas WHERE nome LIKE "%'+doenca.nome+'%"';
 
+    const [rows] = await conn.query(sql);
+return rows;
+}
 
 
 
@@ -44,6 +50,19 @@ async function insertDoenca(doenca){
 else{return await 3;}
 }
 
+async function insertCaso(caso){
+    const conn = await connect();
+    var data = new Date();
+        var dataA = data.getFullYear()+"-"+data.getMonth()+"-"+data.getDate()
+    const sql = 'SELECT COUNT(*) AS countCasos FROM casos WHERE cid = "'+caso.cid+'" AND data ="'+dataA+'" AND usuario ="'+caso.usuario+'" AND ra ="'+caso.ra+'"';
+    const [rows] = await conn.query(sql);
+    if(rows[0].countCasos<=0){
+    const sql = 'INSERT INTO casos(cid,data,usuario,ra,dataOcorrencia) VALUES (?,?,?,?,?);';
+    const values = [caso.cid,dataA,caso.usuario,caso.ra,caso.dataOcorrencia];
+    if(conn.query(sql, values)){return await 1;}else{return await 0;}
+}
+else{return await 3;}
+}
 
 async function selectUser(user){
     const conn = await connect();
@@ -58,4 +77,4 @@ async function selectUser(user){
     return 0;}
 }
  
-module.exports = {selectUser,insertUser,insertDoenca}
+module.exports = {selectUser,insertUser,insertDoenca,buscaDoenca,insertCaso}

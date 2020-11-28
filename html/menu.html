@@ -5,6 +5,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InfectiousMap</title>
@@ -224,6 +226,30 @@ else if(c == "errorCadDoencaNotPermmited"){
   $("#buttonAviso").html("Menu");
   $('#aviso').modal('show');
 }
+else if(c == "successCadCasos"){
+  $("#msgTitle").html("Cadastro de Caso");
+  document.getElementById("imgStatus").src = "images/check.png";
+  $("#msgStatus").html("Caso cadastrado com sucesso!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/menu'");
+  $("#buttonAviso").html("Menu");
+  $('#aviso').modal('show');
+}
+else if(c == "errorCadCasos"){
+  $("#msgTitle").html("Cadastro de Caso");
+  document.getElementById("imgStatus").src = "images/error.png";
+  $("#msgStatus").html("Erro ao cadastrar doença!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/menu'");
+  $("#buttonAviso").html("Menu");
+  $('#aviso').modal('show');
+}
+else if(c == "errorCadCasoExist"){
+  $("#msgTitle").html("Cadastro de Caso");
+  document.getElementById("imgStatus").src = "images/error.png";
+  $("#msgStatus").html("Erro ao cadastrar caso! </br> Você já cadastrou esse caso!");
+  $("#buttonAviso").attr('onclick', "window.location.href='/menu'");
+  $("#buttonAviso").html("Menu");
+  $('#aviso').modal('show');
+}
 }
 
 $(document).ready(function() {
@@ -232,17 +258,32 @@ $(document).ready(function() {
                 $('#name').html("Olá, "+res.user);
                 if(res.crm == 0) {$('#categoria').html("Usuário");}
                 else {$('#categoria').html("Médico");}
-            })
+                var data = new Date();
+        var dataA = data.getFullYear()+"-"+data.getMonth()+"-"+data.getDate();
+                document.getElementById("dataCad").defaultValue = dataA;
+
+            });
+
+          });
+   
+$.getJSON("/search?key=", function(json){
+        $('#selectName').empty();
+        $('#selectName').append($('<option>').text("Doenças Cadastradas..."));
+        $.each(json, function(i, obj){
+console.log(obj);
+for (var i =0;i<obj.length;i++){
+  $('#selectName').append($('<option>').text(obj[i].nome).attr('value', obj[i].cid));
+}
+  
         });
-
-
+  });         
+   
 
         </script>
 </head>
 <body onload="verifSucess();">
     <header>
-
-
+<h5 id="demo"></h5>
         <nav  class="navbar navbar-expand-lg navbar-light bg-light">
 
 
@@ -472,14 +513,15 @@ $(document).ready(function() {
         <div class="modal-body">
     <br>
 
-<form>
+<form id="registrarCaso" action="/cadastrarCaso" method="POST">
 <div>
-    <h4>Nome da Doença: <input id="text"></h4>
+    <h4>Nome da Doença: <select class="form-control select2" id="selectName" name="cidCadCasos">
+    </select></h4>
     <br>
-    <h3>Data de Cadastro: <input id="date" type="date"></h3>
+    <h3>Data de Ocorrencia: <input id="dataCad" type="date" name="dataOcorrencia" ></h3>
     <br>
     <h3>Região Administrativa de Ocorrência: 
-    <select id="inputRa" name="inputRa">
+    <select  name="raCadCasos">
         <option value="1">Plano Piloto</option>
         <option value="2">Gama</option>
         <option value="3">Taguatinga</option>
@@ -522,7 +564,7 @@ $(document).ready(function() {
     
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" onclick="document.getElementById('registroFor4m').submit();" class="btn btn-primary">Cadastrar Caso</button>
+          <button type="button" onclick="document.getElementById('registrarCaso').submit();" class="btn btn-primary">Cadastrar Caso</button>
         </div>
       </div>
     </div>
