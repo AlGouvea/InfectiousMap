@@ -32,18 +32,50 @@ async function buscaDoenca(doenca){
     const [rows] = await conn.query(sql);
 return rows;
 }
+async function buscaNomeDoenca(doenca){
+    const conn = await connect();
+    const sql = 'SELECT nome FROM doencas WHERE cid LIKE "%'+doenca.cid+'%"';
+
+    const [rows] = await conn.query(sql);
+return rows;
+}
+
+
+async function buscaQntDoenca(doenca){
+    if(doenca.ra){
+        const conn = await connect();
+        const sql = 'SELECT COUNT(*) AS countCasos FROM casos WHERE cid = "'+doenca.cid+'" AND ra = "'+doenca.ra+'"';
+        const [rows] = await conn.query(sql);
+ 
+return rows[0];
+}else{
+    const conn = await connect();
+        const sql = 'SELECT COUNT(*) AS countCasos FROM casos WHERE cid = "'+doenca.cid+'"';
+        const [rows] = await conn.query(sql);
+ 
+return rows[0];
+}
+}
+
+
+
+
+
 async function buscaGraph(doenca){
     if(doenca){
     const conn = await connect();
     const sql = 'SELECT *  FROM casos WHERE ra LIKE "%'+doenca.ra+'%"';
 
     const [rows] = await conn.query(sql);
+
+
 return rows;}
 else{
     const conn = await connect();
     const sql = 'SELECT *  FROM casos';
 
     const [rows] = await conn.query(sql);
+    
 return rows;
 }
 }
@@ -91,4 +123,4 @@ async function selectUser(user){
     return 0;}
 }
  
-module.exports = {selectUser,insertUser,insertDoenca,buscaDoenca,insertCaso,buscaGraph}
+module.exports = {selectUser,insertUser,insertDoenca,buscaDoenca,insertCaso,buscaGraph,buscaNomeDoenca,buscaQntDoenca}

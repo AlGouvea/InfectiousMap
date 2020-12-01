@@ -95,7 +95,64 @@ res.end(JSON.stringify(data));
 });
 
 
+app.get('/buscaNomeDoenca',function(req,res){
 
+    if(req.query.cid){
+                                        (async () => {
+                                            const db =  require("./js/db"); 
+                                        
+                                            const result = await db.buscaNomeDoenca({cid:req.query.cid});
+                        
+                                    
+                                            var data=[];
+                                    
+                                    data.push(result);
+                                    
+                                    
+                                    res.end(JSON.stringify(data));
+                                    
+                                        })();  
+    }
+
+
+});
+
+app.get('/buscaQntDoenca',function(req,res){
+
+    if(req.query.ra){
+                                        (async () => {
+                                            const db =  require("./js/db"); 
+                                        
+                                            const result = await db.buscaQntDoenca({cid:req.query.cid,ra:req.query.ra});
+                                    
+                                            var data=[];
+                                    
+                                    data.push(result);
+                                    
+                                    res.end(JSON.stringify(data));
+                                    
+                                        })();  
+    }else{
+
+        (async () => {
+            const db =  require("./js/db"); 
+        
+            const result = await db.buscaQntDoenca({cid:req.query.cid});
+    
+            var data=[];
+    
+    data.push(result);
+    
+    res.end(JSON.stringify(data));
+    
+        })();  
+
+
+
+    }
+
+
+});
 
 
 

@@ -83,13 +83,11 @@
             }
             #containerChart{
                 position: relative;
-                width: 500px;
+                width: 600px;
                 height: 500px;
                 
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-              align-items: center
+                left: 300px;
+                top: -50px;
             }
         </style>
 
@@ -158,22 +156,69 @@ else if(c == "successLogin"){
 
 // AQUI COMECAM AS CONFIGS E DADOS DO GRAFICO
 
-function atualizaGrafico(){
 
- var doencas = [];
-var qntCasos = [12, 19, 3, 5, 2, 3];
+function consultaNomeDoenca(cid){
+
+  var doencas = [];
 
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     var myObj = JSON.parse(this.responseText);
-    console.log(myObj);
-    console.log("chamou1");
+   
     for(var i = 0;i< myObj[0].length;i++){
-        doencas.push(myObj[0][i].cid);
+        doencas.push(myObj[0][i].nome);
+        
     }
+
+  }
+};
+xmlhttp.open("GET", "/buscaNomeDoenca?cid="+cid, true);
+xmlhttp.send();
+return doencas;
+
+}
+
+
+function atualizaNumeros(cid){
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+
+        console.log(myObj);
+        
+        
     
+
+  }
+};
+xmlhttp.open("GET", "/buscaQntDoenca?cid=2020", true);
+xmlhttp.send();
+
+}
+     
+
+
+function atualizaGrafico(){
+ var doencas = [];
+  qntCasos = [1];
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    
+    for(var i = 0;i< myObj[0].length;i++){
+        doencas.push(consultaNomeDoenca(myObj[0][i].cid));
+        atualizaNumeros(myObj[0][i].cid);
+
+      
+    }
     chamaGrafico(doencas,qntCasos);
+
+
     //document.getElementById("demo").innerHTML = myObj[0][1].usuario;
   }
 };
@@ -185,7 +230,7 @@ xmlhttp.send();
 }
 
 function chamaGrafico(doencas,qntCasos){
-    console.log(doencas);
+
     var ctx = document.getElementById('myChart');
     var myChart = new Chart(ctx, {
     type: 'bar',
@@ -223,6 +268,7 @@ function chamaGrafico(doencas,qntCasos){
         }
     }
 });
+
 }
 
         </script>
