@@ -32,7 +32,21 @@ async function buscaDoenca(doenca){
     const [rows] = await conn.query(sql);
 return rows;
 }
+async function buscaGraph(doenca){
+    if(doenca){
+    const conn = await connect();
+    const sql = 'SELECT *  FROM casos WHERE ra LIKE "%'+doenca.ra+'%"';
 
+    const [rows] = await conn.query(sql);
+return rows;}
+else{
+    const conn = await connect();
+    const sql = 'SELECT *  FROM casos';
+
+    const [rows] = await conn.query(sql);
+return rows;
+}
+}
 
 
 
@@ -77,4 +91,4 @@ async function selectUser(user){
     return 0;}
 }
  
-module.exports = {selectUser,insertUser,insertDoenca,buscaDoenca,insertCaso}
+module.exports = {selectUser,insertUser,insertDoenca,buscaDoenca,insertCaso,buscaGraph}

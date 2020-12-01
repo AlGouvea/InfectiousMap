@@ -25,7 +25,16 @@ sess = req.session;
     res.sendFile(__dirname + "/html/index.html");
 });
 
+app.get("/teste", function(req, res){
 
+
+    sess = req.session;
+        if(sess.user) {
+            //return res.redirect('/admin');
+        }
+    
+        res.sendFile(__dirname + "/html/teste.html");
+    });
 
 app.get('/search',function(req,res){
 
@@ -47,6 +56,43 @@ res.end(JSON.stringify(data));
 
 });
 
+
+app.get('/graph',function(req,res){
+
+    if(req.query.ra){
+                                        (async () => {
+                                            console.log("chamado");
+                                            const db =  require("./js/db"); 
+                                        
+                                            const result = await db.buscaGraph({ra:req.query.ra});
+                                    
+                                            var data=[];
+                                    
+                                    data.push(result);
+                                    
+                                    res.end(JSON.stringify(data));
+                                    
+                                        })();  
+    }
+ else {
+    (async () => {
+        console.log("chamado");
+        const db =  require("./js/db"); 
+    
+        const result = await db.buscaGraph();
+
+        var data=[];
+
+data.push(result);
+
+res.end(JSON.stringify(data));
+
+    })();  
+ }   
+
+
+
+});
 
 
 
