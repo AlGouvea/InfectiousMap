@@ -210,14 +210,16 @@ var ra = document.getElementById('inputRaGraph').value;
 var doencaPos = 0;
         
             $.get('/buscaQntDoenca?cid='+myObj[0][i].cid+'&ra='+ra, function(res) {
-              if(ra >= 1 && ra <= 33 && res.countCasos >= 1){
+              if(ra >= 1 && ra <= 33 && res.countCasos >= 0){
                 var str = "Plano Piloto,Gama,Taguatinga,Brazlândia,Sobradinho,Planaltina,Paranoá, Núcle Bandeirante,Ceilândia,Guará,Cruzeiro,Samambaia,Santa Maria,São Sebastião,Recanto das Emas,Lago Sul,Riacho Fundo,Lago Norte,Candangolândia,Águas Claras,Riacho Fundo 2,Sudoeste/Octogonal,Varjão,Park Way,Estrutural/Scia,Sobradinho 2,Jardim Botânico,Itapoã,SIA,Vicente Pires,Fercal,Sol Nascente/Pôr do Sol,Arniqueiras";
                 var nomeRA = str.split(",");
                 document.getElementById("Aviso").innerHTML = nomeRA[ra-1]+" possui um número preocupante de casos de "+doencas[doencaPos];
                 document.getElementById("Periculosidade").style.visibility = "visible";
+               // document.getElementById("PrevencaoBtn").style.visibility = "visible";
               }else{
                 document.getElementById("Aviso").innerHTML = "";
                 document.getElementById("Periculosidade").style.visibility = "hidden";
+                document.getElementById("PrevencaoBtn").style.visibility = "hidden";
               }
     
               console.log(res.countCasos);
@@ -250,7 +252,10 @@ xmlhttp.send();
 
 
 
+
+
 }
+
 
 function chamaGrafico(doencas,qntCasos){
   console.log("funcao chamagr chamada");
@@ -531,7 +536,18 @@ window.myCharts = new Chart(ctx, {
 <div class="jumbotron jumbotron-fluid" id="jumbotron">
   <div class="container">
     <img id="Periculosidade" src="/images/Warning.png" style="width: 75px; height: 75px; visibility: hidden; position: absolute; left:40.5vw; top:6.5vh">
-    <h7 id="Aviso" style="position: absolute; left:47vw; top:14.5vh"></h7>
+    <h7 id="Aviso" style="position: absolute; left:46vw; top:14.7vh"></h7>
+    
+    <!-- Modal Prevencao -->
+    <button id="PrevencaoBtn" class="btn btn-primary" style="position: absolute; left: 46vw; top:9.5vh; visibility: hidden;">Como Me Previnir?</button>
+    <div id="modalPrevencao" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>TESTE</p>
+      </div>
+    </div>
+    <!-- Fim Prevencao -->
+
     <h3 class="display-4">Mapa de Casos</h3>
     <p class="lead">Selecione a RA e o tipo de gráfico que deseja consultar</p>
     <div class="card">
