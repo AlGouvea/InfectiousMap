@@ -153,6 +153,10 @@ else if(c == "successLogin"){
   $("#buttonAviso").html("Página Inicial");
   $('#aviso').modal('show');
 }
+else if(c == "login"){
+  document.getElementById('btnLogin').click();
+  
+}
 
 }
 
@@ -260,7 +264,8 @@ window.myCharts = new Chart(ctx, {
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 159, 64, 0.2)','rgba(136, 132, 205, 0.9)','rgba(249, 206, 37, 0.9)','rgba(219, 128, 192, 0.7)','rgba(33, 40, 3, 0.6)'
+                ,'rgba(47, 32, 91, 0.2)','rgba(9, 54, 230, 0.3)','rgba(59, 48, 8, 0.7)','rgba(198, 245, 28, 0.3)','rgba(52, 60, 173, 0.5)'
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -397,11 +402,11 @@ window.myCharts = new Chart(ctx, {
                   </div>
                 </div>
               </div>
-        </div>
+          </div>
        
         
     </header>
-
+    
 
 <!-- Modal REGISTRO -->
 <div class="modal fade" id="registro" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -581,7 +586,7 @@ window.myCharts = new Chart(ctx, {
 
     <footer>
         <p>
-            Produzido pela Equipe ESCA.
+          <img src="/images/esca.png" width="150" height="100">
         </p>
     </footer>
 </body>
