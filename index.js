@@ -181,21 +181,30 @@ app.post("/cadastrarDoenca",urlencodedParser, function(req, res){
         const db =  require("./js/db"); 
 
 
-        var ar,mosquito,fluidos = 0;
+        var ar = 0;
+        var mosquito = 0; 
+        var fluidos = 0;
         if(req.body.transmAr){ar=1;}
         if(req.body.transmMosquito){mosquito=1;}
         if(req.body.transmFluidos){fluidos=1;}
         var transmO = {ar: +ar, mosquito:+mosquito, fluidos: +fluidos};
         var transm = JSON.stringify(transmO);
 
-        var vacina,mascara =0;
+        var vacina= 0;
+        var mascara = 0;
+        var repelente =0;
         if(req.body.prevVacina){vacina = 1;}
         if(req.body.prevMascara){mascara = 1;}
-        var prevencaoO = {vacina: +vacina, mascara:+mascara};
+        if(req.body.prevRepelente){repelente = 1;}
+        var prevencaoO = {vacina: +vacina, mascara:+mascara, repelente:+repelente};
         var prevencao = JSON.stringify(prevencaoO);
 
 
-        var tosse,febre,coriza,dorDeCabeca,diarreia =0;
+        var tosse =0;
+        var febre=0;
+        var coriza=0;
+        var dorDeCabeca=0;
+        var diarreia =0;
         if(req.body.sintTosse){tosse =1;}
         if(req.body.sintFebre){febre =1;}
         if(req.body.sintCoriza){coriza=1;}
@@ -307,8 +316,7 @@ app.get('/menu',(req,res) => {
        res.sendFile(__dirname + "/html/menu.html");
     }
     else {
-        res.write('<h1>Please login first.</h1>');
-        res.end('<a href='+'/'+'>Login</a>');
+        res.redirect('/?return=login');
     }
 });
 

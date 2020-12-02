@@ -122,6 +122,33 @@
             #inputcidCadDoenca{
               border-radius: 10px;
             }
+            .Fluidos{
+              position: relative;
+             left: 150px;
+
+            }
+            .Repelente{
+              position: relative;
+             left: 150px;
+
+            }
+            .Mosquito{
+              position: relative;
+              left: 70px;
+            }
+            .Mascara{
+              position: relative;
+              left: 70px;
+            }
+           .Ar{
+              position: relative;
+            }
+            .Vacina{
+              position: relative;
+            }
+            #cadastroDoencas{
+              height: 800px;
+            }
             
         </style>
 
@@ -278,7 +305,12 @@ for (var i =0;i<obj.length;i++){
         });
   });         
    
+function validaCadDoenca(){
+  if(document.getElementById('inputnameCadDoenca').value && document.getElementById('inputcidCadDoenca').value && document.getElementById('Risco1').checked || document.getElementById('Risco2').checked || document.getElementById('Risco3').checked){
+    document.getElementById('registrarDoenca').submit();
 
+  }
+}
         </script>
 </head>
 <body onload="verifSucess();">
@@ -301,7 +333,7 @@ for (var i =0;i<obj.length;i++){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/">Início <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/sobre">Sobre</a>
@@ -586,52 +618,61 @@ for (var i =0;i<obj.length;i++){
     <form id="registrarDoenca" action="/cadastrarDoenca" method="POST"> 
         <div>
           <div style="align-items:center;">
-             <h3>Nome: <input type="text" id="inputnameCadDoenca"  name="inputnameCadDoenca" oninput="handleInput(event)"></h3>
+             <h3>Nome: <input type="text" id="inputnameCadDoenca"  name="inputnameCadDoenca" oninput="handleInput(event)" required="true"></h3>
             
-            <h3>CID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="inputcidCadDoenca" type="number" name="inputcidCadDoenca" size="20"></h3>
+            <h3>CID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="inputcidCadDoenca" type="number" name="inputcidCadDoenca" size="20" required="true"></h3>
           </div>
             <br>
             <h3>Formas de Transmissão:</h3>
-            <input type="checkbox" id="Ar" name="transmAr"/>
-            <label for="Ar"><img src="/images/Contagio/ar.png" style="width:5vw; height:5vw;"/></label>
-            <input type="checkbox" id="Mosquito" name="transmMosquito"/>
-            <label for="Mosquito"><img src="/images/Contagio/Mosquito.png" style="width:5vw; height:5vw;"/></label>
-            <input type="checkbox" id="Fluidos" name="transmFluidos" />
-            <label for="Fluidos"><img src="/images/Contagio/Fluidos.png" style="width:5vw; height:5vw;"/></label>
+            <div id="formasTransmissao">
+            <input type="checkbox" id="Ar" name="transmAr" class="Ar"/>
+            <label for="Ar" class="Ar"><img src="/images/Contagio/ar.png" style="width:5vw; height:5vw;"/><h6>Ar</h6></label>
+            <input type="checkbox" id="Mosquito" name="transmMosquito" class="Mosquito"/>
+            <label for="Mosquito" class="Mosquito" ><img src="/images/Contagio/Mosquito.png" style="width:5vw; height:5vw;"/><h6>Mosquito</h6></label>
+            <input type="checkbox" id="Fluidos" name="transmFluidos" class="Fluidos" />
+            <label for="Fluidos"class="Fluidos"><img src="/images/Contagio/Fluidos.png" style="width:5vw; height:5vw;"/><h6>Fluidos</h6></label>
+          </div>
             <br>
             <h3>Formas de Prevenção:</h3>
-            <input type="checkbox" id="Vacina" name="prevVacina"/>
-            <label for="Vacina"><img src="/images/Prevencao/Vacina.png" style="width:5vw; height:5vw;"/></label>
-            <input type="checkbox" id="Mascara" name="prevMascara" />
-            <label for="Mascara"><img src="/images/Prevencao/Mascara.png" style="width:5vw; height:5vw;"/></label>
+            <div id="formasPrevencao">
+            <input type="checkbox" id="Vacina" name="prevVacina" title="Vacina" class="Vacina"/>
+            <label for="Vacina" class="Vacina"><img src="/images/Prevencao/Vacina.png" style="width:5vw; height:5vw;" title="Vacina" /><h6>Vacina</h6></label>
+            <input type="checkbox" id="Mascara" name="prevMascara" title="Máscara" class="Mascara" />
+            <label for="Mascara" class="Mascara"><img src="/images/Prevencao/Mascara.png" style="width:5vw; height:5vw;" title="Máscara"/><h6>Máscara</h6></label>
+            <input type="checkbox" id="Repelente" name="prevRepelente" title="Repelente" class="Repelente" />
+            <label for="Repelente" class="Repelente"><img src="/images/Prevencao/Repelente.png" style="width:5vw; height:5vw;" title="Repelente"/><h6>Repelente</h6></label>
+          </div>
             <br>
+            </div>
             <h3>Nível de Risco:</h3> <br>
-            <input type="radio" name="Risco"  id="1" value="Baixo"> 
+            <input type="radio" name="Risco"  id="Risco1" value="Baixo"> 
             <label for="1"> <h5>Baixo</h5> </label>
-            <input type="radio" name="Risco" id="2" value="Medio">
+            <input type="radio" name="Risco" id="Risco2" value="Medio">
              <label for="2"><h5>Médio</h5></label>
-            <input type="radio" name="Risco" id="3" value="Alto">
+            <input type="radio" name="Risco" id="Risco3" value="Alto">
              <label for="3"><h5>Alto</h5></label> 
             <br>
             <h3>Sintomas:</h3>
             <input type="checkbox" id="Tosse" name="sintTosse"/>
-            <label for="Tosse"><img src="/images/Sintomas/tosse.png" style="width:5vw; height:5vw;"/></label>
+            <label for="Tosse"><img src="/images/Sintomas/tosse.png" style="width:5vw; height:5vw;"/><h6>Tosse</h6></label>
             <input type="checkbox" id="Febre" name="sintTosse" />
-            <label for="Febre"><img src="/images/Sintomas/febre.png" style="width:5vw; height:5vw;"/></label>
+            <label for="Febre"><img src="/images/Sintomas/febre.png" style="width:5vw; height:5vw;"/><h6>Febre</h6></label>
             <input type="checkbox" id="Corisa" name="sintCoriza" />
-            <label for="Corisa"><img src="/images/Sintomas/corisa.png" style="width:5vw; height:5vw;"/></label>
+            <label for="Corisa"><img src="/images/Sintomas/corisa.png" style="width:5vw; height:5vw;"/><h6>Coriza</h6></label>
             <input type="checkbox" id="Dor_de_cabeca" name="sintDorDeCabeca"/>
-            <label for="Dor_de_cabeca"><img src="/images/Sintomas/dor-de-cabeca.png" style="width:5vw; height:5vw;"/></label>
+            <label for="Dor_de_cabeca"><img src="/images/Sintomas/dor-de-cabeca.png" style="width:5vw; height:5vw;"/><h6>Dor de Cabeça</h6></label>
+          </br>
             <input type="checkbox" id="Diarreia" name="sintDiarreia"/>
-            <label for="Diarreia"><img src="/images/Sintomas/diarreia.png" style="width:5vw; height:5vw;"/></label>
+            <label for="Diarreia"><img src="/images/Sintomas/diarreia.png" style="width:5vw; height:5vw;"/><h6>Diarreia</h6></label>
             
         </div>
         </form>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" onclick="validaCadDoenca();" class="btn btn-primary">Cadastrar Doença</button>
         </div>
     
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" onclick="document.getElementById('registrarDoenca').submit();" class="btn btn-primary">Cadastrar Doença</button>
+          
         </div>
       </div>
     </div>
@@ -675,7 +716,7 @@ for (var i =0;i<obj.length;i++){
 
     <footer>
         <p>
-            Produzido pela Equipe ESCA.
+          <img src="/images/esca.png" width="150" height="100">
         </p>
     </footer>
 </body>
