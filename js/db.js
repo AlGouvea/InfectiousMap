@@ -64,7 +64,7 @@ return rows[0];
 async function buscaGraph(doenca){
     if(doenca){
     const conn = await connect();
-    const sql = 'SELECT *  FROM casos WHERE ra LIKE "%'+doenca.ra+'%"';
+    const sql = 'SELECT *  FROM doencas';
 
     const [rows] = await conn.query(sql);
 
@@ -72,7 +72,7 @@ async function buscaGraph(doenca){
 return rows;}
 else{
     const conn = await connect();
-    const sql = 'SELECT *  FROM casos';
+    const sql = 'SELECT *  FROM doencas';
 
     const [rows] = await conn.query(sql);
     

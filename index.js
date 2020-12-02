@@ -129,7 +129,7 @@ app.get('/buscaQntDoenca',function(req,res){
                                     
                                     data.push(result);
                                     
-                                    res.end(JSON.stringify(data));
+                                    res.send(result);
                                     
                                         })();  
     }else{
@@ -143,7 +143,7 @@ app.get('/buscaQntDoenca',function(req,res){
     
     data.push(result);
     
-    res.end(JSON.stringify(data));
+    res.send(result);
     
         })();  
 
