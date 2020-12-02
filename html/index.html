@@ -563,17 +563,19 @@ window.myCharts = new Chart(ctx, {
             <select id="inputGraphType" name="inputGraphType" class="form-control" onchange="atualizaGrafico();">
               <option value="bar">Barras</option>
               <option value="line">Linhas</option>
+              <option value="pie">Torta</option>
+              <option value="polarArea">Area Polar</option>
               
         
             </select>
-        
+            <div id="containerChart">
+              <canvas id="myChart" width="100" height="85" disabled ></canvas>
+            
+          </div>
+            </div>
       </div>
     </div>
-    <div id="containerChart">
-    <canvas id="myChart" width="20" height="20" disabled ></canvas>
-
-</div>
-  </div>
+   
 </div>
 
 
