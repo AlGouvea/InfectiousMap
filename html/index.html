@@ -187,6 +187,7 @@ return doencas;
 
 
 function atualizaGrafico(){
+  console.log("funcao atualiza chamada");
  var doencas = [];
   qntCasos = [];
   
@@ -196,8 +197,9 @@ var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     var myObj = JSON.parse(this.responseText);
-    
-    for(var i = 0;i< myObj[0].length;i++){
+    var i = 0 
+    for(;i< myObj[0].length;i++){
+
         doencas.push(consultaNomeDoenca(myObj[0][i].cid));
         //qntCasos= qntCasos.concat(atualizaNumeros(myObj[0][i].cid));
 var ra = document.getElementById('inputRaGraph').value;
@@ -220,6 +222,8 @@ var ra = document.getElementById('inputRaGraph').value;
 
       
     }
+    
+    
     console.log(doencas);
     
     
@@ -236,9 +240,14 @@ xmlhttp.send();
 }
 
 function chamaGrafico(doencas,qntCasos){
+  console.log("funcao chamagr chamada");
+  console.log("funcao chamada");
 var type = document.getElementById('inputGraphType').value;
     var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
+    ctx.innerHTML = null;
+    if(window.myCharts != undefined)
+window.myCharts.destroy();
+window.myCharts = new Chart(ctx, {
     type: type,
     data: {
         labels: doencas,
@@ -265,6 +274,7 @@ var type = document.getElementById('inputGraphType').value;
         }]
     },
     options: {
+      
         scales: {
             yAxes: [{
                 ticks: {
@@ -513,6 +523,7 @@ var type = document.getElementById('inputGraphType').value;
 
         <label for="inputRaGraph">Região Administrativa</label>
             <select id="inputRaGraph" name="inputRaGraph" class="form-control" onchange="atualizaGrafico();">
+
               <option value="">Todas</option>
               <option value="1">Plano Piloto</option>
         <option value="2">Gama</option>
@@ -559,7 +570,7 @@ var type = document.getElementById('inputGraphType').value;
       </div>
     </div>
     <div id="containerChart">
-    <canvas id="myChart" width="20" height="20"></canvas>
+    <canvas id="myChart" width="20" height="20" disabled ></canvas>
 
 </div>
   </div>
