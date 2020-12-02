@@ -210,11 +210,17 @@ var ra = document.getElementById('inputRaGraph').value;
 
         
             $.get('/buscaQntDoenca?cid='+myObj[0][i].cid+'&ra='+ra, function(res) {
-              
+              if(ra >= 1 && ra <= 33){
+                var str = "Plano Piloto,Gama,Taguatinga,Brazlândia,Sobradinho,Planaltina,Paranoá, Núcle Bandeirante,Ceilândia,Guará,Cruzeiro,Samambaia,Santa Maria,São Sebastião,Recanto das Emas,Lago Sul,Riacho Fundo,Lago Norte,Candangolândia,Águas Claras,Riacho Fundo 2,Sudoeste/Octogonal,Varjão,Park Way,Estrutural/Scia,Sobradinho 2,Jardim Botânico,Itapoã,SIA,Vicente Pires,Fercal,Sol Nascente/Pôr do Sol,Arniqueiras";
+                var nomeRA = str.split(",");
+
+                document.getElementById("Aviso").innerHTML = nomeRA[ra-1]+" possui um alto número de casos"
+                document.getElementById("Periculosidade").style.visibility = "visible";
+              }
     
-                console.log(res.countCasos);
-                qntCasos= qntCasos.concat(res.countCasos);
-                chamaGrafico(doencas,qntCasos);
+              console.log(res.countCasos);
+              qntCasos= qntCasos.concat(res.countCasos);
+              chamaGrafico(doencas,qntCasos);
             });
 
           
@@ -246,8 +252,6 @@ xmlhttp.send();
 function chamaGrafico(doencas,qntCasos){
   console.log("funcao chamagr chamada");
   console.log("funcao chamada");
-  document.getElementById("teste").innerHTML = qntCasos;
-  document.getElementById("Periculosidade").style.visibility = "visible";
 var type = document.getElementById('inputGraphType').value;
     var ctx = document.getElementById('myChart');
     ctx.innerHTML = null;
@@ -592,7 +596,6 @@ window.myCharts = new Chart(ctx, {
         <p>
           <img src="/images/esca.png" width="150" height="100">
         </p>
-        <p id="teste">UFA</p>
     </footer>
 </body>
 </html>
