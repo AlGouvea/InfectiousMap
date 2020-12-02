@@ -207,20 +207,20 @@ xmlhttp.onreadystatechange = function() {
         doencas.push(consultaNomeDoenca(myObj[0][i].cid));
         //qntCasos= qntCasos.concat(atualizaNumeros(myObj[0][i].cid));
 var ra = document.getElementById('inputRaGraph').value;
-
+var doencaPos = 0;
         
             $.get('/buscaQntDoenca?cid='+myObj[0][i].cid+'&ra='+ra, function(res) {
-              if(ra >= 1 && ra <= 33){
+              if(ra >= 1 && ra <= 33 && res.countCasos >= 1){
                 var str = "Plano Piloto,Gama,Taguatinga,Brazlândia,Sobradinho,Planaltina,Paranoá, Núcle Bandeirante,Ceilândia,Guará,Cruzeiro,Samambaia,Santa Maria,São Sebastião,Recanto das Emas,Lago Sul,Riacho Fundo,Lago Norte,Candangolândia,Águas Claras,Riacho Fundo 2,Sudoeste/Octogonal,Varjão,Park Way,Estrutural/Scia,Sobradinho 2,Jardim Botânico,Itapoã,SIA,Vicente Pires,Fercal,Sol Nascente/Pôr do Sol,Arniqueiras";
                 var nomeRA = str.split(",");
-
-                document.getElementById("Aviso").innerHTML = nomeRA[ra-1]+" possui um alto número de casos"
+                document.getElementById("Aviso").innerHTML = nomeRA[ra-1]+" possui um alto número de casos de "+doencas[doencaPos];
                 document.getElementById("Periculosidade").style.visibility = "visible";
               }
     
               console.log(res.countCasos);
               qntCasos= qntCasos.concat(res.countCasos);
               chamaGrafico(doencas,qntCasos);
+              doencaPos++;
             });
 
           
