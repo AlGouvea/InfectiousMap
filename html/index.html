@@ -215,7 +215,7 @@ var doencaPos = 0;
                 var nomeRA = str.split(",");
                 document.getElementById("Aviso").innerHTML = nomeRA[ra-1]+" possui um número preocupante de casos de "+doencas[doencaPos];
                 document.getElementById("Periculosidade").style.visibility = "visible";
-               // document.getElementById("PrevencaoBtn").style.visibility = "visible";
+                document.getElementById("PrevencaoBtn").style.visibility = "visible";
               }else{
                 document.getElementById("Aviso").innerHTML = "";
                 document.getElementById("Periculosidade").style.visibility = "hidden";
@@ -536,14 +536,13 @@ window.myCharts = new Chart(ctx, {
 <div class="jumbotron jumbotron-fluid" id="jumbotron">
   <div class="container">
     <img id="Periculosidade" src="/images/Warning.png" style="width: 75px; height: 75px; visibility: hidden; position: absolute; left:40.5vw; top:6.5vh">
-    <h7 id="Aviso" style="position: absolute; left:46vw; top:14.7vh"></h7>
+    <h7 id="Aviso" style="position: absolute; left:46vw; top:14.7vh; color: 920d1b;"></h7>
     
     <!-- Modal Prevencao -->
-    <button id="PrevencaoBtn" class="btn btn-primary" style="position: absolute; left: 46vw; top:9.5vh; visibility: hidden;">Como Me Previnir?</button>
-    <div id="modalPrevencao" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>TESTE</p>
+    <button id="PrevencaoBtn" class="btn btn-primary" style="position: absolute; left: 46vw; top:9.5vh; visibility: hidden; background-color: #920d1b;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Como Me Previnir?</button>
+    <div class="dropdown">
+      <div class="dropdown-menu" style="position: absolute; height: 200px;">
+        <h3>TESTE</h3>
       </div>
     </div>
     <!-- Fim Prevencao -->
