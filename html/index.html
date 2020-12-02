@@ -246,6 +246,8 @@ xmlhttp.send();
 function chamaGrafico(doencas,qntCasos){
   console.log("funcao chamagr chamada");
   console.log("funcao chamada");
+  document.getElementById("teste").innerHTML = qntCasos;
+  document.getElementById("Periculosidade").style.visibility = "visible";
 var type = document.getElementById('inputGraphType').value;
     var ctx = document.getElementById('myChart');
     ctx.innerHTML = null;
@@ -521,6 +523,8 @@ window.myCharts = new Chart(ctx, {
 
 <div class="jumbotron jumbotron-fluid" id="jumbotron">
   <div class="container">
+    <img id="Periculosidade" src="/images/Warning.png" style="width: 90px; height: 90px; visibility: hidden; position: absolute; left:45vw; top:7.5vh">
+    <h5 id="Aviso" style="position: absolute; left:50vw; top:14.5vh"></h5>
     <h3 class="display-4">Mapa de Casos</h3>
     <p class="lead">Selecione a RA e o tipo de gráfico que deseja consultar</p>
     <div class="card">
@@ -588,6 +592,7 @@ window.myCharts = new Chart(ctx, {
         <p>
           <img src="/images/esca.png" width="150" height="100">
         </p>
+        <p id="teste">UFA</p>
     </footer>
 </body>
 </html>
