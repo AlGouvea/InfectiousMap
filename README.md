@@ -42,4 +42,4 @@ Primeiro deve ser selecionada a doença relacionada ao caso em questão (previam
 ![584cd182-5921-4310-a1b2-0bde8160a5b1](https://user-images.githubusercontent.com/48574280/101086950-52769d00-3590-11eb-8b8b-9ec8d3b6717b.jpg) 
 
 
-Depois disso, caso queira voltar para a análise de casos é só voltar para o início clicando novamente no botão “Início” no canto superior esquerdo da tela.
+Depois disso, caso queira voltar para o mapa de casos é só clicar no botão “Início” no canto superior esquerdo da tela.
