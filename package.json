@@ -1,0 +1,30 @@
+{
+  "name": "infectiousmap",
+  "version": "1.0.0",
+  "description": "Programa de monitoramento de doencas",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.9.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5",
+    "npm-windows-upgrade": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "test": "index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlGouvea/InfectiousMap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlGouvea/InfectiousMap/issues"
+  },
+  "homepage": "https://github.com/AlGouvea/InfectiousMap#readme"
+}
