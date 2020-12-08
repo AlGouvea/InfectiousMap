@@ -9,6 +9,7 @@ Na barra superior, temos alguns botões de interação:
 
 
 Início: é exatamente a página inicial onde nos encontramos ao abrir o site.
+
 Sobre: página destina a falar um pouco sobre o site e sobre a nossa bela equipe.
 ![Captura de tela 2020-12-03 162713](https://user-images.githubusercontent.com/48574280/101086181-40482f00-358f-11eb-8f2b-b2110387484c.png)
 
